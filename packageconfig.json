@@ -1,7 +1,8 @@
 ﻿{
 
-  "packageName" : "Cloudmersive.APIClient.NETCore.DocumentAndDataConvert",
+{
+  "packageName" : "Cloudmersive.APIClient.NETCore.VirusScan",
   "packageVersion": "1.1.8",
   "netCoreProjectFile": "true",
-  "packageGuid": "be4bc5a5-a1f7-4174-9376-21c0bc7b2001"
+  "packageGuid": "d6bea351-f1c3-4718-9384-3673c83d6996"
 }  
