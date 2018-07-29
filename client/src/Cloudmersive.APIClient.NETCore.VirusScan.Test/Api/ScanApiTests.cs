@@ -17,11 +17,11 @@ using System.Reflection;
 using RestSharp;
 using NUnit.Framework;
 
-using IO.Swagger.Client;
-using IO.Swagger.Api;
-using IO.Swagger.Model;
+using Cloudmersive.APIClient.NETCore.VirusScan.Client;
+using Cloudmersive.APIClient.NETCore.VirusScan.Api;
+using Cloudmersive.APIClient.NETCore.VirusScan.Model;
 
-namespace IO.Swagger.Test
+namespace Cloudmersive.APIClient.NETCore.VirusScan.Test
 {
     /// <summary>
     ///  Class for testing ScanApi

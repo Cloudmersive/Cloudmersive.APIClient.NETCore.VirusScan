@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using Cloudmersive.APIClient.NETCore.VirusScan.Client;
+using Cloudmersive.APIClient.NETCore.VirusScan.Model;
 
-namespace IO.Swagger.Api
+namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace IO.Swagger.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>VirusScanResult</returns>
         VirusScanResult ScanFile (System.IO.Stream inputFile);
@@ -41,7 +41,7 @@ namespace IO.Swagger.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>ApiResponse of VirusScanResult</returns>
         ApiResponse<VirusScanResult> ScanFileWithHttpInfo (System.IO.Stream inputFile);
@@ -53,7 +53,7 @@ namespace IO.Swagger.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of VirusScanResult</returns>
         System.Threading.Tasks.Task<VirusScanResult> ScanFileAsync (System.IO.Stream inputFile);
@@ -64,7 +64,7 @@ namespace IO.Swagger.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of ApiResponse (VirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<VirusScanResult>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile);
@@ -76,7 +76,7 @@ namespace IO.Swagger.Api
     /// </summary>
     public partial class ScanApi : IScanApi
     {
-        private IO.Swagger.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Cloudmersive.APIClient.NETCore.VirusScan.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ScanApi"/> class.
@@ -86,7 +86,7 @@ namespace IO.Swagger.Api
         {
             this.Configuration = new Configuration { BasePath = basePath };
 
-            ExceptionFactory = IO.Swagger.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace IO.Swagger.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = IO.Swagger.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public IO.Swagger.Client.ExceptionFactory ExceptionFactory
+        public Cloudmersive.APIClient.NETCore.VirusScan.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -171,7 +171,7 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Scan a file for viruses 
         /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>VirusScanResult</returns>
         public VirusScanResult ScanFile (System.IO.Stream inputFile)
@@ -183,7 +183,7 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Scan a file for viruses 
         /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>ApiResponse of VirusScanResult</returns>
         public ApiResponse< VirusScanResult > ScanFileWithHttpInfo (System.IO.Stream inputFile)
@@ -246,7 +246,7 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Scan a file for viruses 
         /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of VirusScanResult</returns>
         public async System.Threading.Tasks.Task<VirusScanResult> ScanFileAsync (System.IO.Stream inputFile)
@@ -259,7 +259,7 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Scan a file for viruses 
         /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of ApiResponse (VirusScanResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<VirusScanResult>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile)

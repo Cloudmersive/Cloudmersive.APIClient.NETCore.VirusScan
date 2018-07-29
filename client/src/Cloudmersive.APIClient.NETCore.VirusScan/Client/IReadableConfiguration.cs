@@ -11,7 +11,7 @@
 
 using System.Collections.Generic;
 
-namespace IO.Swagger.Client
+namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
 {
     /// <summary>
     /// Represents a readable-only configuration contract.

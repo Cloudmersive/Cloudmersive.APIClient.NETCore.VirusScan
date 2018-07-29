@@ -1,4 +1,4 @@
-# IO.Swagger.Api.ScanApi
+# Cloudmersive.APIClient.NETCore.VirusScan.Api.ScanApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
@@ -17,9 +17,9 @@ Scan a file for viruses
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using Cloudmersive.APIClient.NETCore.VirusScan.Api;
+using Cloudmersive.APIClient.NETCore.VirusScan.Client;
+using Cloudmersive.APIClient.NETCore.VirusScan.Model;
 
 namespace Example
 {

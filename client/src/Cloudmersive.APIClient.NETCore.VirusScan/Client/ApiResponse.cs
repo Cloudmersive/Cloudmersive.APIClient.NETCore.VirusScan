@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace IO.Swagger.Client
+namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
 {
     /// <summary>
     /// API Response

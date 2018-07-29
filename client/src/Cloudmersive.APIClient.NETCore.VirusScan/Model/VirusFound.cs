@@ -20,40 +20,40 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.VirusScan.Client.SwaggerDateConverter;
 
-namespace IO.Swagger.Model
+namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
 {
     /// <summary>
-    /// Result of running a virus scan
+    /// Virus positively identified
     /// </summary>
     [DataContract]
-    public partial class VirusScanResult :  IEquatable<VirusScanResult>, IValidatableObject
+    public partial class VirusFound :  IEquatable<VirusFound>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VirusScanResult" /> class.
+        /// Initializes a new instance of the <see cref="VirusFound" /> class.
         /// </summary>
-        /// <param name="CleanResult">True if the scan contained no viruses, false otherwise.</param>
-        /// <param name="FoundViruses">Array of viruses found, if any.</param>
-        public VirusScanResult(bool? CleanResult = default(bool?), List<VirusFound> FoundViruses = default(List<VirusFound>))
+        /// <param name="FileName">Name of the file containing the virus.</param>
+        /// <param name="VirusName">Name of the virus that was found.</param>
+        public VirusFound(string FileName = default(string), string VirusName = default(string))
         {
-            this.CleanResult = CleanResult;
-            this.FoundViruses = FoundViruses;
+            this.FileName = FileName;
+            this.VirusName = VirusName;
         }
         
         /// <summary>
-        /// True if the scan contained no viruses, false otherwise
+        /// Name of the file containing the virus
         /// </summary>
-        /// <value>True if the scan contained no viruses, false otherwise</value>
-        [DataMember(Name="CleanResult", EmitDefaultValue=false)]
-        public bool? CleanResult { get; set; }
+        /// <value>Name of the file containing the virus</value>
+        [DataMember(Name="FileName", EmitDefaultValue=false)]
+        public string FileName { get; set; }
 
         /// <summary>
-        /// Array of viruses found, if any
+        /// Name of the virus that was found
         /// </summary>
-        /// <value>Array of viruses found, if any</value>
-        [DataMember(Name="FoundViruses", EmitDefaultValue=false)]
-        public List<VirusFound> FoundViruses { get; set; }
+        /// <value>Name of the virus that was found</value>
+        [DataMember(Name="VirusName", EmitDefaultValue=false)]
+        public string VirusName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VirusScanResult {\n");
-            sb.Append("  CleanResult: ").Append(CleanResult).Append("\n");
-            sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
+            sb.Append("class VirusFound {\n");
+            sb.Append("  FileName: ").Append(FileName).Append("\n");
+            sb.Append("  VirusName: ").Append(VirusName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +85,29 @@ namespace IO.Swagger.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VirusScanResult);
+            return this.Equals(input as VirusFound);
         }
 
         /// <summary>
-        /// Returns true if VirusScanResult instances are equal
+        /// Returns true if VirusFound instances are equal
         /// </summary>
-        /// <param name="input">Instance of VirusScanResult to be compared</param>
+        /// <param name="input">Instance of VirusFound to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VirusScanResult input)
+        public bool Equals(VirusFound input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.CleanResult == input.CleanResult ||
-                    (this.CleanResult != null &&
-                    this.CleanResult.Equals(input.CleanResult))
+                    this.FileName == input.FileName ||
+                    (this.FileName != null &&
+                    this.FileName.Equals(input.FileName))
                 ) && 
                 (
-                    this.FoundViruses == input.FoundViruses ||
-                    this.FoundViruses != null &&
-                    this.FoundViruses.SequenceEqual(input.FoundViruses)
+                    this.VirusName == input.VirusName ||
+                    (this.VirusName != null &&
+                    this.VirusName.Equals(input.VirusName))
                 );
         }
 
@@ -120,10 +120,10 @@ namespace IO.Swagger.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CleanResult != null)
-                    hashCode = hashCode * 59 + this.CleanResult.GetHashCode();
-                if (this.FoundViruses != null)
-                    hashCode = hashCode * 59 + this.FoundViruses.GetHashCode();
+                if (this.FileName != null)
+                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
+                if (this.VirusName != null)
+                    hashCode = hashCode * 59 + this.VirusName.GetHashCode();
                 return hashCode;
             }
         }

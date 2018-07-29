@@ -15,7 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 
-namespace IO.Swagger.Client
+namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

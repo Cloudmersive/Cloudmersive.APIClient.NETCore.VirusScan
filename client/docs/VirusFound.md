@@ -1,4 +1,4 @@
-# IO.Swagger.Model.VirusFound
+# Cloudmersive.APIClient.NETCore.VirusScan.Model.VirusFound
 ## Properties
 
 Name | Type | Description | Notes

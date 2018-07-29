@@ -1,4 +1,4 @@
-# IO.Swagger.Model.VirusScanResult
+# Cloudmersive.APIClient.NETCore.VirusScan.Model.VirusScanResult
 ## Properties
 
 Name | Type | Description | Notes
