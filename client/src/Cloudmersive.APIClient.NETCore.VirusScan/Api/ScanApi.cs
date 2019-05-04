@@ -45,6 +45,27 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>ApiResponse of VirusScanResult</returns>
         ApiResponse<VirusScanResult> ScanFileWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>WebsiteScanResult</returns>
+        WebsiteScanResult ScanWebsite (WebsiteScanRequest input);
+
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>ApiResponse of WebsiteScanResult</returns>
+        ApiResponse<WebsiteScanResult> ScanWebsiteWithHttpInfo (WebsiteScanRequest input);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -68,6 +89,27 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of ApiResponse (VirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<VirusScanResult>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>Task of WebsiteScanResult</returns>
+        System.Threading.Tasks.Task<WebsiteScanResult> ScanWebsiteAsync (WebsiteScanRequest input);
+
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>Task of ApiResponse (WebsiteScanResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebsiteScanResult>> ScanWebsiteAsyncWithHttpInfo (WebsiteScanRequest input);
         #endregion Asynchronous Operations
     }
 
@@ -317,6 +359,179 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             return new ApiResponse<VirusScanResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (VirusScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
+        }
+
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>WebsiteScanResult</returns>
+        public WebsiteScanResult ScanWebsite (WebsiteScanRequest input)
+        {
+             ApiResponse<WebsiteScanResult> localVarResponse = ScanWebsiteWithHttpInfo(input);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>ApiResponse of WebsiteScanResult</returns>
+        public ApiResponse< WebsiteScanResult > ScanWebsiteWithHttpInfo (WebsiteScanRequest input)
+        {
+            // verify the required parameter 'input' is set
+            if (input == null)
+                throw new ApiException(400, "Missing required parameter 'input' when calling ScanApi->ScanWebsite");
+
+            var localVarPath = "/virus/scan/website";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (input != null && input.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(input); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = input; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanWebsite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebsiteScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebsiteScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebsiteScanResult)));
+        }
+
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>Task of WebsiteScanResult</returns>
+        public async System.Threading.Tasks.Task<WebsiteScanResult> ScanWebsiteAsync (WebsiteScanRequest input)
+        {
+             ApiResponse<WebsiteScanResult> localVarResponse = await ScanWebsiteAsyncWithHttpInfo(input);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="input"></param>
+        /// <returns>Task of ApiResponse (WebsiteScanResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebsiteScanResult>> ScanWebsiteAsyncWithHttpInfo (WebsiteScanRequest input)
+        {
+            // verify the required parameter 'input' is set
+            if (input == null)
+                throw new ApiException(400, "Missing required parameter 'input' when calling ScanApi->ScanWebsite");
+
+            var localVarPath = "/virus/scan/website";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (input != null && input.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(input); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = input; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanWebsite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebsiteScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebsiteScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebsiteScanResult)));
         }
 
     }

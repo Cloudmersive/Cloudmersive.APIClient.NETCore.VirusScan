@@ -76,6 +76,18 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Test
             //Assert.IsInstanceOf<VirusScanResult> (response, "response is VirusScanResult");
         }
         
+        /// <summary>
+        /// Test ScanWebsite
+        /// </summary>
+        [Test]
+        public void ScanWebsiteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //WebsiteScanRequest input = null;
+            //var response = instance.ScanWebsite(input);
+            //Assert.IsInstanceOf<WebsiteScanResult> (response, "response is WebsiteScanResult");
+        }
+        
     }
 
 }
