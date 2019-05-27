@@ -29,7 +29,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.2.4";
+        public const string Version = "1.2.5";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/1.2.4/csharp";
+            UserAgent = "Swagger-Codegen/1.2.5/csharp";
             BasePath = "https://api.cloudmersive.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/1.2.4/csharp"
+            string userAgent = "Swagger-Codegen/1.2.5/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -422,7 +422,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 1.2.4\n";
+            report += "    SDK Package Version: 1.2.5\n";
 
             return report;
         }
