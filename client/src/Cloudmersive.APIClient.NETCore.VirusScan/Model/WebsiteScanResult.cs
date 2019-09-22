@@ -1,7 +1,7 @@
 /* 
  * virusapi
  *
- * Virus API lets you scan files and content for viruses and identify security issues with content.
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -60,7 +60,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             /// Enum ForcedDownload for value: ForcedDownload
             /// </summary>
             [EnumMember(Value = "ForcedDownload")]
-            ForcedDownload = 4
+            ForcedDownload = 4,
+            
+            /// <summary>
+            /// Enum UnableToConnect for value: UnableToConnect
+            /// </summary>
+            [EnumMember(Value = "UnableToConnect")]
+            UnableToConnect = 5
         }
 
         /// <summary>

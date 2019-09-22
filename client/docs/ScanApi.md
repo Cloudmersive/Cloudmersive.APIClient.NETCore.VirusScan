@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ScanFile**](ScanApi.md#scanfile) | **POST** /virus/scan/file | Scan a file for viruses
-[**ScanWebsite**](ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content including viruses and threats (including Phishing)
+[**ScanWebsite**](ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 
 
 <a name="scanfile"></a>
@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > VirusScanResult ScanFile (System.IO.Stream inputFile)
 
 Scan a file for viruses
+
+Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
 
 ### Example
 ```csharp
@@ -76,7 +78,9 @@ Name | Type | Description  | Notes
 # **ScanWebsite**
 > WebsiteScanResult ScanWebsite (WebsiteScanRequest input)
 
-Scan a website for malicious content including viruses and threats (including Phishing)
+Scan a website for malicious content and threats
+
+Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
 
 ### Example
 ```csharp
@@ -102,7 +106,7 @@ namespace Example
 
             try
             {
-                // Scan a website for malicious content including viruses and threats (including Phishing)
+                // Scan a website for malicious content and threats
                 WebsiteScanResult result = apiInstance.ScanWebsite(input);
                 Debug.WriteLine(result);
             }

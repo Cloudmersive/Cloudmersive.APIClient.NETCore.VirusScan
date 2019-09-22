@@ -1,7 +1,7 @@
 /* 
  * virusapi
  *
- * Virus API lets you scan files and content for viruses and identify security issues with content.
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -28,7 +28,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// Scan a file for viruses
         /// </summary>
         /// <remarks>
-        /// 
+        /// Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
@@ -39,17 +39,17 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// Scan a file for viruses
         /// </summary>
         /// <remarks>
-        /// 
+        /// Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>ApiResponse of VirusScanResult</returns>
         ApiResponse<VirusScanResult> ScanFileWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// Scan a website for malicious content and threats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -57,10 +57,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         WebsiteScanResult ScanWebsite (WebsiteScanRequest input);
 
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// Scan a website for malicious content and threats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -72,7 +72,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// Scan a file for viruses
         /// </summary>
         /// <remarks>
-        /// 
+        /// Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
@@ -83,17 +83,17 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// Scan a file for viruses
         /// </summary>
         /// <remarks>
-        /// 
+        /// Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of ApiResponse (VirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<VirusScanResult>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// Scan a website for malicious content and threats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -101,10 +101,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         System.Threading.Tasks.Task<WebsiteScanResult> ScanWebsiteAsync (WebsiteScanRequest input);
 
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing)
+        /// Scan a website for malicious content and threats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -211,7 +211,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a file for viruses 
+        /// Scan a file for viruses Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
@@ -223,7 +223,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a file for viruses 
+        /// Scan a file for viruses Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
@@ -286,7 +286,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a file for viruses 
+        /// Scan a file for viruses Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
@@ -299,7 +299,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a file for viruses 
+        /// Scan a file for viruses Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
@@ -362,7 +362,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// Scan a website for malicious content and threats Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -374,7 +374,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// Scan a website for malicious content and threats Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -448,7 +448,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// Scan a website for malicious content and threats Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>
@@ -461,7 +461,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
-        /// Scan a website for malicious content including viruses and threats (including Phishing) 
+        /// Scan a website for malicious content and threats Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input"></param>

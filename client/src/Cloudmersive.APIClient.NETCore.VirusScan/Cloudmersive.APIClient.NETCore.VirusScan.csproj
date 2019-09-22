@@ -14,8 +14,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>Cloudmersive.APIClient.NETCore.VirusScan</RootNamespace>
-    <Version>1.2.5</Version>
-  <PackageIconUrl>https://cloudmersive.com/images/cmsdk_core.png</PackageIconUrl><PackageLicenseExpression>Apache-2.0</PackageLicenseExpression></PropertyGroup>
+    <Version>1.2.6</Version>
+  <PackageIconUrl>https://cloudmersive.com/images/cmsdk_core.png</PackageIconUrl><PackageLicenseExpression>Apache-2.0</PackageLicenseExpression><PackageProjectUrl>https://cloudmersive.com/virus-api</PackageProjectUrl></PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="105.1.0" />
