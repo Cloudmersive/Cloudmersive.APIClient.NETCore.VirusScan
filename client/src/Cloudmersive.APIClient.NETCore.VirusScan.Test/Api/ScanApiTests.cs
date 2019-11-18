@@ -77,6 +77,22 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Test
         }
         
         /// <summary>
+        /// Test ScanFileAdvanced
+        /// </summary>
+        [Test]
+        public void ScanFileAdvancedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //bool? allowExecutables = null;
+            //bool? allowInvalidFiles = null;
+            //bool? allowScripts = null;
+            //string restrictFileTypes = null;
+            //var response = instance.ScanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, restrictFileTypes);
+            //Assert.IsInstanceOf<VirusScanAdvancedResult> (response, "response is VirusScanAdvancedResult");
+        }
+        
+        /// <summary>
         /// Test ScanWebsite
         /// </summary>
         [Test]
