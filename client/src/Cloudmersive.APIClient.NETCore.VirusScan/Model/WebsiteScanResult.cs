@@ -80,10 +80,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// </summary>
         /// <param name="CleanResult">True if the scan contained no threats, false otherwise.</param>
         /// <param name="WebsiteThreatType">Type of threat returned; can be None, Malware, ForcedDownload or Phishing.</param>
-        public WebsiteScanResult(bool? CleanResult = default(bool?), WebsiteThreatTypeEnum? WebsiteThreatType = default(WebsiteThreatTypeEnum?))
+        /// <param name="FoundViruses">Array of viruses found, if any.</param>
+        public WebsiteScanResult(bool? CleanResult = default(bool?), WebsiteThreatTypeEnum? WebsiteThreatType = default(WebsiteThreatTypeEnum?), List<VirusFound> FoundViruses = default(List<VirusFound>))
         {
             this.CleanResult = CleanResult;
             this.WebsiteThreatType = WebsiteThreatType;
+            this.FoundViruses = FoundViruses;
         }
         
         /// <summary>
@@ -95,6 +97,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
 
 
         /// <summary>
+        /// Array of viruses found, if any
+        /// </summary>
+        /// <value>Array of viruses found, if any</value>
+        [DataMember(Name="FoundViruses", EmitDefaultValue=false)]
+        public List<VirusFound> FoundViruses { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +113,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("class WebsiteScanResult {\n");
             sb.Append("  CleanResult: ").Append(CleanResult).Append("\n");
             sb.Append("  WebsiteThreatType: ").Append(WebsiteThreatType).Append("\n");
+            sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +157,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.WebsiteThreatType == input.WebsiteThreatType ||
                     (this.WebsiteThreatType != null &&
                     this.WebsiteThreatType.Equals(input.WebsiteThreatType))
+                ) && 
+                (
+                    this.FoundViruses == input.FoundViruses ||
+                    this.FoundViruses != null &&
+                    this.FoundViruses.SequenceEqual(input.FoundViruses)
                 );
         }
 
@@ -163,6 +178,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.CleanResult.GetHashCode();
                 if (this.WebsiteThreatType != null)
                     hashCode = hashCode * 59 + this.WebsiteThreatType.GetHashCode();
+                if (this.FoundViruses != null)
+                    hashCode = hashCode * 59 + this.FoundViruses.GetHashCode();
                 return hashCode;
             }
         }
