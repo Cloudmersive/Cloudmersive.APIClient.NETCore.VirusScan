@@ -81,11 +81,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="CleanResult">True if the scan contained no threats, false otherwise.</param>
         /// <param name="WebsiteThreatType">Type of threat returned; can be None, Malware, ForcedDownload or Phishing.</param>
         /// <param name="FoundViruses">Array of viruses found, if any.</param>
-        public WebsiteScanResult(bool? CleanResult = default(bool?), WebsiteThreatTypeEnum? WebsiteThreatType = default(WebsiteThreatTypeEnum?), List<VirusFound> FoundViruses = default(List<VirusFound>))
+        /// <param name="WebsiteHttpResponseCode">The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL..</param>
+        public WebsiteScanResult(bool? CleanResult = default(bool?), WebsiteThreatTypeEnum? WebsiteThreatType = default(WebsiteThreatTypeEnum?), List<VirusFound> FoundViruses = default(List<VirusFound>), int? WebsiteHttpResponseCode = default(int?))
         {
             this.CleanResult = CleanResult;
             this.WebsiteThreatType = WebsiteThreatType;
             this.FoundViruses = FoundViruses;
+            this.WebsiteHttpResponseCode = WebsiteHttpResponseCode;
         }
         
         /// <summary>
@@ -104,6 +106,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public List<VirusFound> FoundViruses { get; set; }
 
         /// <summary>
+        /// The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL.
+        /// </summary>
+        /// <value>The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL.</value>
+        [DataMember(Name="WebsiteHttpResponseCode", EmitDefaultValue=false)]
+        public int? WebsiteHttpResponseCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +123,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  CleanResult: ").Append(CleanResult).Append("\n");
             sb.Append("  WebsiteThreatType: ").Append(WebsiteThreatType).Append("\n");
             sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
+            sb.Append("  WebsiteHttpResponseCode: ").Append(WebsiteHttpResponseCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +172,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.FoundViruses == input.FoundViruses ||
                     this.FoundViruses != null &&
                     this.FoundViruses.SequenceEqual(input.FoundViruses)
+                ) && 
+                (
+                    this.WebsiteHttpResponseCode == input.WebsiteHttpResponseCode ||
+                    (this.WebsiteHttpResponseCode != null &&
+                    this.WebsiteHttpResponseCode.Equals(input.WebsiteHttpResponseCode))
                 );
         }
 
@@ -180,6 +195,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.WebsiteThreatType.GetHashCode();
                 if (this.FoundViruses != null)
                     hashCode = hashCode * 59 + this.FoundViruses.GetHashCode();
+                if (this.WebsiteHttpResponseCode != null)
+                    hashCode = hashCode * 59 + this.WebsiteHttpResponseCode.GetHashCode();
                 return hashCode;
             }
         }

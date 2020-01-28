@@ -90,6 +90,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Test
         {
             // TODO unit test for the property 'FoundViruses'
         }
+        /// <summary>
+        /// Test the property 'WebsiteHttpResponseCode'
+        /// </summary>
+        [Test]
+        public void WebsiteHttpResponseCodeTest()
+        {
+            // TODO unit test for the property 'WebsiteHttpResponseCode'
+        }
 
     }
 
