@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.VirusScan.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
@@ -28,27 +26,27 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
     /// Result of running an advanced virus scan
     /// </summary>
     [DataContract]
-    public partial class VirusScanAdvancedResult :  IEquatable<VirusScanAdvancedResult>, IValidatableObject
+    public partial class VirusScanAdvancedResult :  IEquatable<VirusScanAdvancedResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VirusScanAdvancedResult" /> class.
         /// </summary>
-        /// <param name="CleanResult">True if the scan contained no viruses, false otherwise.</param>
-        /// <param name="ContainsExecutable">True if the scan contained an executable (application code), which can be a significant risk factor.</param>
-        /// <param name="ContainsInvalidFile">True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor.</param>
-        /// <param name="ContainsScript">True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor.</param>
-        /// <param name="ContainsRestrictedFileFormat">True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false.</param>
-        /// <param name="VerifiedFileFormat">For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null..</param>
-        /// <param name="FoundViruses">Array of viruses found, if any.</param>
-        public VirusScanAdvancedResult(bool? CleanResult = default(bool?), bool? ContainsExecutable = default(bool?), bool? ContainsInvalidFile = default(bool?), bool? ContainsScript = default(bool?), bool? ContainsRestrictedFileFormat = default(bool?), string VerifiedFileFormat = default(string), List<VirusFound> FoundViruses = default(List<VirusFound>))
+        /// <param name="cleanResult">True if the scan contained no viruses, false otherwise.</param>
+        /// <param name="containsExecutable">True if the scan contained an executable (application code), which can be a significant risk factor.</param>
+        /// <param name="containsInvalidFile">True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor.</param>
+        /// <param name="containsScript">True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor.</param>
+        /// <param name="containsRestrictedFileFormat">True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false.</param>
+        /// <param name="verifiedFileFormat">For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null..</param>
+        /// <param name="foundViruses">Array of viruses found, if any.</param>
+        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsRestrictedFileFormat = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>))
         {
-            this.CleanResult = CleanResult;
-            this.ContainsExecutable = ContainsExecutable;
-            this.ContainsInvalidFile = ContainsInvalidFile;
-            this.ContainsScript = ContainsScript;
-            this.ContainsRestrictedFileFormat = ContainsRestrictedFileFormat;
-            this.VerifiedFileFormat = VerifiedFileFormat;
-            this.FoundViruses = FoundViruses;
+            this.CleanResult = cleanResult;
+            this.ContainsExecutable = containsExecutable;
+            this.ContainsInvalidFile = containsInvalidFile;
+            this.ContainsScript = containsScript;
+            this.ContainsRestrictedFileFormat = containsRestrictedFileFormat;
+            this.VerifiedFileFormat = verifiedFileFormat;
+            this.FoundViruses = foundViruses;
         }
         
         /// <summary>
@@ -123,7 +121,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -211,16 +209,6 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.FoundViruses.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

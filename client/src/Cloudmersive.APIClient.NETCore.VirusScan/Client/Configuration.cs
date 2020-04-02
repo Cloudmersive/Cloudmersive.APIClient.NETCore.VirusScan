@@ -29,7 +29,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.6.1";
+        public const string Version = "2.0.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -57,11 +57,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
                     string.Format("Error calling {0}: {1}", methodName, response.Content),
                     response.Content);
             }
-            if (status == 0)
-            {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
-            }
+            
             return null;
         };
 
@@ -114,7 +110,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/1.6.1/csharp";
+            UserAgent = "Swagger-Codegen/2.0.2/csharp";
             BasePath = "https://api.cloudmersive.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +183,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/1.6.1/csharp"
+            string userAgent = "Swagger-Codegen/2.0.2/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -248,9 +244,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
         /// </summary>
         public virtual int Timeout
         {
-            
-            get { return ApiClient.RestClient.Timeout; }
-            set { ApiClient.RestClient.Timeout = value; }
+            get { return (int)ApiClient.RestClient.Timeout.GetValueOrDefault(TimeSpan.FromSeconds(0)).TotalMilliseconds; }
+            set { ApiClient.RestClient.Timeout = TimeSpan.FromMilliseconds(value); }
         }
 
         /// <summary>
@@ -419,10 +414,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Client
         public static String ToDebugReport()
         {
             String report = "C# SDK (Cloudmersive.APIClient.NETCore.VirusScan) Debug Report:\n";
-            report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 1.6.1\n";
+            report += "    SDK Package Version: 2.0.2\n";
 
             return report;
         }

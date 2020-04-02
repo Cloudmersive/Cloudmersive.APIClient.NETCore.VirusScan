@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <AssemblyName>Cloudmersive.APIClient.NETCore.VirusScan</AssemblyName>
     <PackageId>Cloudmersive.APIClient.NETCore.VirusScan</PackageId>
     <OutputType>Library</OutputType>
@@ -14,25 +14,15 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>Cloudmersive.APIClient.NETCore.VirusScan</RootNamespace>
-    <Version>1.6.1</Version>
+    <Version>2.0.2</Version>
   <PackageIconUrl>https://cloudmersive.com/images/cmsdk_core.png</PackageIconUrl><PackageLicenseExpression>Apache-2.0</PackageLicenseExpression><PackageProjectUrl>https://cloudmersive.com/virus-api</PackageProjectUrl></PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RestSharp" Version="106.6.10" />
+    <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.7" />
+    <PackageReference Include="FubarCoder.RestSharp.Portable.HttpClient" Version="4.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="JsonSubTypes" Version="1.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
 
 </Project>

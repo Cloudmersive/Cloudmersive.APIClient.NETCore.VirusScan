@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.VirusScan.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
     /// Result of running a virus scan
     /// </summary>
     [DataContract]
-    public partial class VirusScanResult :  IEquatable<VirusScanResult>, IValidatableObject
+    public partial class VirusScanResult :  IEquatable<VirusScanResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VirusScanResult" /> class.
         /// </summary>
-        /// <param name="CleanResult">True if the scan contained no viruses, false otherwise.</param>
-        /// <param name="FoundViruses">Array of viruses found, if any.</param>
-        public VirusScanResult(bool? CleanResult = default(bool?), List<VirusFound> FoundViruses = default(List<VirusFound>))
+        /// <param name="cleanResult">True if the scan contained no viruses, false otherwise.</param>
+        /// <param name="foundViruses">Array of viruses found, if any.</param>
+        public VirusScanResult(bool? cleanResult = default(bool?), List<VirusFound> foundViruses = default(List<VirusFound>))
         {
-            this.CleanResult = CleanResult;
-            this.FoundViruses = FoundViruses;
+            this.CleanResult = cleanResult;
+            this.FoundViruses = foundViruses;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.FoundViruses.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

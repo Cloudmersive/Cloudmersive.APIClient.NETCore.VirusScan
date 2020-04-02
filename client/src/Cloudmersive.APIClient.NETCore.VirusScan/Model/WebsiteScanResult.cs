@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.VirusScan.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
@@ -28,7 +26,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
     /// Result of running a website scan
     /// </summary>
     [DataContract]
-    public partial class WebsiteScanResult :  IEquatable<WebsiteScanResult>, IValidatableObject
+    public partial class WebsiteScanResult :  IEquatable<WebsiteScanResult>
     {
         /// <summary>
         /// Type of threat returned; can be None, Malware, ForcedDownload or Phishing
@@ -78,16 +76,16 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsiteScanResult" /> class.
         /// </summary>
-        /// <param name="CleanResult">True if the scan contained no threats, false otherwise.</param>
-        /// <param name="WebsiteThreatType">Type of threat returned; can be None, Malware, ForcedDownload or Phishing.</param>
-        /// <param name="FoundViruses">Array of viruses found, if any.</param>
-        /// <param name="WebsiteHttpResponseCode">The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL..</param>
-        public WebsiteScanResult(bool? CleanResult = default(bool?), WebsiteThreatTypeEnum? WebsiteThreatType = default(WebsiteThreatTypeEnum?), List<VirusFound> FoundViruses = default(List<VirusFound>), int? WebsiteHttpResponseCode = default(int?))
+        /// <param name="cleanResult">True if the scan contained no threats, false otherwise.</param>
+        /// <param name="websiteThreatType">Type of threat returned; can be None, Malware, ForcedDownload or Phishing.</param>
+        /// <param name="foundViruses">Array of viruses found, if any.</param>
+        /// <param name="websiteHttpResponseCode">The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL..</param>
+        public WebsiteScanResult(bool? cleanResult = default(bool?), WebsiteThreatTypeEnum? websiteThreatType = default(WebsiteThreatTypeEnum?), List<VirusFound> foundViruses = default(List<VirusFound>), int? websiteHttpResponseCode = default(int?))
         {
-            this.CleanResult = CleanResult;
-            this.WebsiteThreatType = WebsiteThreatType;
-            this.FoundViruses = FoundViruses;
-            this.WebsiteHttpResponseCode = WebsiteHttpResponseCode;
+            this.CleanResult = cleanResult;
+            this.WebsiteThreatType = websiteThreatType;
+            this.FoundViruses = foundViruses;
+            this.WebsiteHttpResponseCode = websiteHttpResponseCode;
         }
         
         /// <summary>
@@ -132,7 +130,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -199,16 +197,6 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.WebsiteHttpResponseCode.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

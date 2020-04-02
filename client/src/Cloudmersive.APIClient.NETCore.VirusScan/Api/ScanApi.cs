@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Cloudmersive.APIClient.NETCore.VirusScan.Client;
 using Cloudmersive.APIClient.NETCore.VirusScan.Model;
 
@@ -184,7 +184,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <returns></returns>
         public ScanApi(String basePath)
         {
-            this.Configuration = new Configuration { BasePath = basePath };
+            this.Configuration = new Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration { BasePath = basePath };
 
             ExceptionFactory = Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration.DefaultExceptionFactory;
         }
@@ -195,10 +195,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ScanApi(Configuration configuration = null)
+        public ScanApi(Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                this.Configuration = Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
@@ -228,7 +228,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Cloudmersive.APIClient.NETCore.VirusScan.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -292,10 +292,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (inputFile == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile' when calling ScanApi->ScanFile");
 
-            var localVarPath = "/virus/scan/file";
+            var localVarPath = "./virus/scan/file";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -304,7 +304,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -313,20 +313,20 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+            if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -339,8 +339,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             return new ApiResponse<VirusScanResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (VirusScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (VirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
         }
 
         /// <summary>
@@ -368,10 +368,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (inputFile == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile' when calling ScanApi->ScanFile");
 
-            var localVarPath = "/virus/scan/file";
+            var localVarPath = "./virus/scan/file";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -380,7 +380,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -389,20 +389,20 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+            if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -415,8 +415,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             return new ApiResponse<VirusScanResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (VirusScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (VirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
         }
 
         /// <summary>
@@ -451,10 +451,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (inputFile == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile' when calling ScanApi->ScanFileAdvanced");
 
-            var localVarPath = "/virus/scan/file/advanced";
+            var localVarPath = "./virus/scan/file/advanced";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -463,7 +463,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -472,24 +472,24 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
-            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
-            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
-            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
-            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -502,8 +502,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             return new ApiResponse<VirusScanAdvancedResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (VirusScanAdvancedResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanAdvancedResult)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (VirusScanAdvancedResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanAdvancedResult)));
         }
 
         /// <summary>
@@ -539,10 +539,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (inputFile == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile' when calling ScanApi->ScanFileAdvanced");
 
-            var localVarPath = "/virus/scan/file/advanced";
+            var localVarPath = "./virus/scan/file/advanced";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -551,7 +551,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -560,24 +560,24 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
-            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
-            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
-            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
-            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -590,8 +590,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             return new ApiResponse<VirusScanAdvancedResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (VirusScanAdvancedResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanAdvancedResult)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (VirusScanAdvancedResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanAdvancedResult)));
         }
 
         /// <summary>
@@ -618,10 +618,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (input == null)
                 throw new ApiException(400, "Missing required parameter 'input' when calling ScanApi->ScanWebsite");
 
-            var localVarPath = "/virus/scan/website";
+            var localVarPath = "./virus/scan/website";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -634,7 +634,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "text/xml", 
                 "application/x-www-form-urlencoded"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -643,13 +643,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (input != null && input.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(input); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(input); // http body (model) parameter
             }
             else
             {
@@ -657,13 +657,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -676,8 +676,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             return new ApiResponse<WebsiteScanResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebsiteScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebsiteScanResult)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (WebsiteScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebsiteScanResult)));
         }
 
         /// <summary>
@@ -705,10 +705,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (input == null)
                 throw new ApiException(400, "Missing required parameter 'input' when calling ScanApi->ScanWebsite");
 
-            var localVarPath = "/virus/scan/website";
+            var localVarPath = "./virus/scan/website";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -721,7 +721,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "text/xml", 
                 "application/x-www-form-urlencoded"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -730,13 +730,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (input != null && input.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(input); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(input); // http body (model) parameter
             }
             else
             {
@@ -744,13 +744,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -763,8 +763,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             }
 
             return new ApiResponse<WebsiteScanResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebsiteScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebsiteScanResult)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (WebsiteScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebsiteScanResult)));
         }
 
     }

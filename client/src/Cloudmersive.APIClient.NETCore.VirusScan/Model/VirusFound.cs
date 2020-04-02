@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.VirusScan.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
     /// Virus positively identified
     /// </summary>
     [DataContract]
-    public partial class VirusFound :  IEquatable<VirusFound>, IValidatableObject
+    public partial class VirusFound :  IEquatable<VirusFound>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VirusFound" /> class.
         /// </summary>
-        /// <param name="FileName">Name of the file containing the virus.</param>
-        /// <param name="VirusName">Name of the virus that was found.</param>
-        public VirusFound(string FileName = default(string), string VirusName = default(string))
+        /// <param name="fileName">Name of the file containing the virus.</param>
+        /// <param name="virusName">Name of the virus that was found.</param>
+        public VirusFound(string fileName = default(string), string virusName = default(string))
         {
-            this.FileName = FileName;
-            this.VirusName = VirusName;
+            this.FileName = fileName;
+            this.VirusName = virusName;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.VirusName.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 
