@@ -56,9 +56,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>VirusScanAdvancedResult</returns>
-        VirusScanAdvancedResult ScanFileAdvanced (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null);
+        VirusScanAdvancedResult ScanFileAdvanced (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan a file for viruses
@@ -71,9 +72,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of VirusScanAdvancedResult</returns>
-        ApiResponse<VirusScanAdvancedResult> ScanFileAdvancedWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null);
+        ApiResponse<VirusScanAdvancedResult> ScanFileAdvancedWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan a website for malicious content and threats
         /// </summary>
@@ -129,9 +131,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of VirusScanAdvancedResult</returns>
-        System.Threading.Tasks.Task<VirusScanAdvancedResult> ScanFileAdvancedAsync (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<VirusScanAdvancedResult> ScanFileAdvancedAsync (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan a file for viruses
@@ -144,9 +147,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (VirusScanAdvancedResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VirusScanAdvancedResult>> ScanFileAdvancedAsyncWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<ApiResponse<VirusScanAdvancedResult>> ScanFileAdvancedAsyncWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan a website for malicious content and threats
         /// </summary>
@@ -427,11 +431,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>VirusScanAdvancedResult</returns>
-        public VirusScanAdvancedResult ScanFileAdvanced (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null)
+        public VirusScanAdvancedResult ScanFileAdvanced (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null)
         {
-             ApiResponse<VirusScanAdvancedResult> localVarResponse = ScanFileAdvancedWithHttpInfo(inputFile, allowExecutables, allowInvalidFiles, allowScripts, restrictFileTypes);
+             ApiResponse<VirusScanAdvancedResult> localVarResponse = ScanFileAdvancedWithHttpInfo(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, restrictFileTypes);
              return localVarResponse.Data;
         }
 
@@ -443,9 +448,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of VirusScanAdvancedResult</returns>
-        public ApiResponse< VirusScanAdvancedResult > ScanFileAdvancedWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null)
+        public ApiResponse< VirusScanAdvancedResult > ScanFileAdvancedWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -479,6 +485,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
             if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
             if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
             if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
@@ -514,11 +521,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of VirusScanAdvancedResult</returns>
-        public async System.Threading.Tasks.Task<VirusScanAdvancedResult> ScanFileAdvancedAsync (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<VirusScanAdvancedResult> ScanFileAdvancedAsync (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null)
         {
-             ApiResponse<VirusScanAdvancedResult> localVarResponse = await ScanFileAdvancedAsyncWithHttpInfo(inputFile, allowExecutables, allowInvalidFiles, allowScripts, restrictFileTypes);
+             ApiResponse<VirusScanAdvancedResult> localVarResponse = await ScanFileAdvancedAsyncWithHttpInfo(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, restrictFileTypes);
              return localVarResponse.Data;
 
         }
@@ -531,9 +539,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Pythong scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (VirusScanAdvancedResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<VirusScanAdvancedResult>> ScanFileAdvancedAsyncWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<ApiResponse<VirusScanAdvancedResult>> ScanFileAdvancedAsyncWithHttpInfo (System.IO.Stream inputFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -567,6 +576,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
             if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
             if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
             if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 

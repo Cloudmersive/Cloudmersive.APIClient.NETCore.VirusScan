@@ -35,15 +35,17 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="containsExecutable">True if the scan contained an executable (application code), which can be a significant risk factor.</param>
         /// <param name="containsInvalidFile">True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor.</param>
         /// <param name="containsScript">True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor.</param>
+        /// <param name="containsPasswordProtectedFile">True if the scan contained a password protected or encrypted file, which can be a significant risk factor.</param>
         /// <param name="containsRestrictedFileFormat">True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false.</param>
         /// <param name="verifiedFileFormat">For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null..</param>
         /// <param name="foundViruses">Array of viruses found, if any.</param>
-        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsRestrictedFileFormat = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>))
+        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>))
         {
             this.CleanResult = cleanResult;
             this.ContainsExecutable = containsExecutable;
             this.ContainsInvalidFile = containsInvalidFile;
             this.ContainsScript = containsScript;
+            this.ContainsPasswordProtectedFile = containsPasswordProtectedFile;
             this.ContainsRestrictedFileFormat = containsRestrictedFileFormat;
             this.VerifiedFileFormat = verifiedFileFormat;
             this.FoundViruses = foundViruses;
@@ -78,6 +80,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public bool? ContainsScript { get; set; }
 
         /// <summary>
+        /// True if the scan contained a password protected or encrypted file, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the scan contained a password protected or encrypted file, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsPasswordProtectedFile", EmitDefaultValue=false)]
+        public bool? ContainsPasswordProtectedFile { get; set; }
+
+        /// <summary>
         /// True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false
         /// </summary>
         /// <value>True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false</value>
@@ -110,6 +119,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  ContainsExecutable: ").Append(ContainsExecutable).Append("\n");
             sb.Append("  ContainsInvalidFile: ").Append(ContainsInvalidFile).Append("\n");
             sb.Append("  ContainsScript: ").Append(ContainsScript).Append("\n");
+            sb.Append("  ContainsPasswordProtectedFile: ").Append(ContainsPasswordProtectedFile).Append("\n");
             sb.Append("  ContainsRestrictedFileFormat: ").Append(ContainsRestrictedFileFormat).Append("\n");
             sb.Append("  VerifiedFileFormat: ").Append(VerifiedFileFormat).Append("\n");
             sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
@@ -168,6 +178,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.ContainsScript.Equals(input.ContainsScript))
                 ) && 
                 (
+                    this.ContainsPasswordProtectedFile == input.ContainsPasswordProtectedFile ||
+                    (this.ContainsPasswordProtectedFile != null &&
+                    this.ContainsPasswordProtectedFile.Equals(input.ContainsPasswordProtectedFile))
+                ) && 
+                (
                     this.ContainsRestrictedFileFormat == input.ContainsRestrictedFileFormat ||
                     (this.ContainsRestrictedFileFormat != null &&
                     this.ContainsRestrictedFileFormat.Equals(input.ContainsRestrictedFileFormat))
@@ -201,6 +216,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsInvalidFile.GetHashCode();
                 if (this.ContainsScript != null)
                     hashCode = hashCode * 59 + this.ContainsScript.GetHashCode();
+                if (this.ContainsPasswordProtectedFile != null)
+                    hashCode = hashCode * 59 + this.ContainsPasswordProtectedFile.GetHashCode();
                 if (this.ContainsRestrictedFileFormat != null)
                     hashCode = hashCode * 59 + this.ContainsRestrictedFileFormat.GetHashCode();
                 if (this.VerifiedFileFormat != null)
