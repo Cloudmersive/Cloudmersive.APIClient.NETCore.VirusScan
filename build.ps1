@@ -19,7 +19,7 @@
 (Get-Content '.\client\src\Cloudmersive.APIClient.NETCore.VirusScan\Client\ApiClient.cs').replace('request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);', 'request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);') | Set-Content '.\client\src\Cloudmersive.APIClient.NETCore.VirusScan\Client\ApiClient.cs'
 
 
-
+(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('</ItemGroup>', '</ItemGroup><Target Name="PostBuild" AfterTargets="PostBuildEvent">    <Exec Command="call powershell C:\CodeSigning\sign.ps1  $(TargetPath)" />  </Target>') | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
 
 
 & dotnet build ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj -c Release
