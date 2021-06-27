@@ -5,7 +5,7 @@ The Cloudmersive Virus Scan API lets you scan files and content for viruses and 
 This C# SDK is for the [Cloudmersive Virus Scan API](https://www.cloudmersive.com/virus-api):
 
 - API version: v1
-- SDK version: 2.0.6
+- SDK version: 2.0.7
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -83,13 +83,17 @@ Class | Method | HTTP request | Description
 *ScanApi* | [**ScanFileAdvanced**](docs/ScanApi.md#scanfileadvanced) | **POST** /virus/scan/file/advanced | Advanced Scan a file for viruses
 *ScanApi* | [**ScanWebsite**](docs/ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAwsS3File**](docs/ScanCloudStorageApi.md#scancloudstoragescanawss3file) | **POST** /virus/scan/cloud-storage/aws-s3/single | Scan an AWS S3 file for viruses
+*ScanCloudStorageApi* | [**ScanCloudStorageScanAwsS3FileAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescanawss3fileadvanced) | **POST** /virus/scan/cloud-storage/aws-s3/single/advanced | Advanced Scan an AWS S3 file for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAzureBlob**](docs/ScanCloudStorageApi.md#scancloudstoragescanazureblob) | **POST** /virus/scan/cloud-storage/azure-blob/single | Scan an Azure Blob for viruses
+*ScanCloudStorageApi* | [**ScanCloudStorageScanAzureBlobAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescanazureblobadvanced) | **POST** /virus/scan/cloud-storage/azure-blob/single/advanced | Advanced Scan an Azure Blob for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanGcpStorageFile**](docs/ScanCloudStorageApi.md#scancloudstoragescangcpstoragefile) | **POST** /virus/scan/cloud-storage/gcp-storage/single | Scan an Google Cloud Platform (GCP) Storage file for viruses
+*ScanCloudStorageApi* | [**ScanCloudStorageScanGcpStorageFileAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescangcpstoragefileadvanced) | **POST** /virus/scan/cloud-storage/gcp-storage/single/advanced | Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.CloudStorageAdvancedVirusScanResult](docs/CloudStorageAdvancedVirusScanResult.md)
  - [Model.CloudStorageVirusFound](docs/CloudStorageVirusFound.md)
  - [Model.CloudStorageVirusScanResult](docs/CloudStorageVirusScanResult.md)
  - [Model.VirusFound](docs/VirusFound.md)

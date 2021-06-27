@@ -54,6 +54,47 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
         /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>CloudStorageAdvancedVirusScanResult</returns>
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+        /// <summary>
         /// Scan an Azure Blob for viruses
         /// </summary>
         /// <remarks>
@@ -79,6 +120,43 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanAzureBlobWithHttpInfo (string connectionString, string containerName, string blobPath);
         /// <summary>
+        /// Advanced Scan an Azure Blob for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>CloudStorageAdvancedVirusScanResult</returns>
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAzureBlobAdvanced (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+        /// <summary>
         /// Scan an Google Cloud Platform (GCP) Storage file for viruses
         /// </summary>
         /// <remarks>
@@ -103,6 +181,43 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanGcpStorageFileWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile);
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>CloudStorageAdvancedVirusScanResult</returns>
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanGcpStorageFileAdvanced (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -135,6 +250,47 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
         /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+        /// <summary>
         /// Scan an Azure Blob for viruses
         /// </summary>
         /// <remarks>
@@ -160,6 +316,43 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAzureBlobAsyncWithHttpInfo (string connectionString, string containerName, string blobPath);
         /// <summary>
+        /// Advanced Scan an Azure Blob for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+        /// <summary>
         /// Scan an Google Cloud Platform (GCP) Storage file for viruses
         /// </summary>
         /// <remarks>
@@ -184,6 +377,43 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanGcpStorageFileAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile);
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
+        /// </summary>
+        /// <remarks>
+        /// Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null);
         #endregion Asynchronous Operations
     }
 
@@ -484,6 +714,241 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>CloudStorageAdvancedVirusScanResult</returns>
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'accessKey' is set
+            if (accessKey == null)
+                throw new ApiException(400, "Missing required parameter 'accessKey' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'secretKey' is set
+            if (secretKey == null)
+                throw new ApiException(400, "Missing required parameter 'secretKey' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'bucketRegion' is set
+            if (bucketRegion == null)
+                throw new ApiException(400, "Missing required parameter 'bucketRegion' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'bucketName' is set
+            if (bucketName == null)
+                throw new ApiException(400, "Missing required parameter 'bucketName' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'keyName' is set
+            if (keyName == null)
+                throw new ApiException(400, "Missing required parameter 'keyName' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+
+            var localVarPath = "./virus/scan/cloud-storage/aws-s3/single/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (accessKey != null) localVarHeaderParams.Add("accessKey", this.Configuration.ApiClient.ParameterToString(accessKey)); // header parameter
+            if (secretKey != null) localVarHeaderParams.Add("secretKey", this.Configuration.ApiClient.ParameterToString(secretKey)); // header parameter
+            if (bucketRegion != null) localVarHeaderParams.Add("bucketRegion", this.Configuration.ApiClient.ParameterToString(bucketRegion)); // header parameter
+            if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
+            if (keyName != null) localVarHeaderParams.Add("keyName", this.Configuration.ApiClient.ParameterToString(keyName)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanAwsS3FileAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
+        }
+
+        /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Advanced Scan an AWS S3 file for viruses Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessKey">AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
+        /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
+        /// <param name="bucketName">Name of the S3 bucket</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'accessKey' is set
+            if (accessKey == null)
+                throw new ApiException(400, "Missing required parameter 'accessKey' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'secretKey' is set
+            if (secretKey == null)
+                throw new ApiException(400, "Missing required parameter 'secretKey' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'bucketRegion' is set
+            if (bucketRegion == null)
+                throw new ApiException(400, "Missing required parameter 'bucketRegion' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'bucketName' is set
+            if (bucketName == null)
+                throw new ApiException(400, "Missing required parameter 'bucketName' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+            // verify the required parameter 'keyName' is set
+            if (keyName == null)
+                throw new ApiException(400, "Missing required parameter 'keyName' when calling ScanCloudStorageApi->ScanCloudStorageScanAwsS3FileAdvanced");
+
+            var localVarPath = "./virus/scan/cloud-storage/aws-s3/single/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (accessKey != null) localVarHeaderParams.Add("accessKey", this.Configuration.ApiClient.ParameterToString(accessKey)); // header parameter
+            if (secretKey != null) localVarHeaderParams.Add("secretKey", this.Configuration.ApiClient.ParameterToString(secretKey)); // header parameter
+            if (bucketRegion != null) localVarHeaderParams.Add("bucketRegion", this.Configuration.ApiClient.ParameterToString(bucketRegion)); // header parameter
+            if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
+            if (keyName != null) localVarHeaderParams.Add("keyName", this.Configuration.ApiClient.ParameterToString(keyName)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanAwsS3FileAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
+        }
+
+        /// <summary>
         /// Scan an Azure Blob for viruses Scan the contents of a single Azure Blob and its content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
@@ -659,6 +1124,217 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         }
 
         /// <summary>
+        /// Advanced Scan an Azure Blob for viruses Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>CloudStorageAdvancedVirusScanResult</returns>
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAzureBlobAdvanced (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'connectionString' is set
+            if (connectionString == null)
+                throw new ApiException(400, "Missing required parameter 'connectionString' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvanced");
+            // verify the required parameter 'containerName' is set
+            if (containerName == null)
+                throw new ApiException(400, "Missing required parameter 'containerName' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvanced");
+            // verify the required parameter 'blobPath' is set
+            if (blobPath == null)
+                throw new ApiException(400, "Missing required parameter 'blobPath' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvanced");
+
+            var localVarPath = "./virus/scan/cloud-storage/azure-blob/single/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (connectionString != null) localVarHeaderParams.Add("connectionString", this.Configuration.ApiClient.ParameterToString(connectionString)); // header parameter
+            if (containerName != null) localVarHeaderParams.Add("containerName", this.Configuration.ApiClient.ParameterToString(containerName)); // header parameter
+            if (blobPath != null) localVarHeaderParams.Add("blobPath", this.Configuration.ApiClient.ParameterToString(blobPath)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanAzureBlobAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'connectionString' is set
+            if (connectionString == null)
+                throw new ApiException(400, "Missing required parameter 'connectionString' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvanced");
+            // verify the required parameter 'containerName' is set
+            if (containerName == null)
+                throw new ApiException(400, "Missing required parameter 'containerName' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvanced");
+            // verify the required parameter 'blobPath' is set
+            if (blobPath == null)
+                throw new ApiException(400, "Missing required parameter 'blobPath' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvanced");
+
+            var localVarPath = "./virus/scan/cloud-storage/azure-blob/single/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (connectionString != null) localVarHeaderParams.Add("connectionString", this.Configuration.ApiClient.ParameterToString(connectionString)); // header parameter
+            if (containerName != null) localVarHeaderParams.Add("containerName", this.Configuration.ApiClient.ParameterToString(containerName)); // header parameter
+            if (blobPath != null) localVarHeaderParams.Add("blobPath", this.Configuration.ApiClient.ParameterToString(blobPath)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanAzureBlobAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
+        }
+
+        /// <summary>
         /// Scan an Google Cloud Platform (GCP) Storage file for viruses Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
@@ -831,6 +1507,217 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             return new ApiResponse<CloudStorageVirusScanResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CloudStorageVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageVirusScanResult)));
+        }
+
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>CloudStorageAdvancedVirusScanResult</returns>
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanGcpStorageFileAdvanced (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'bucketName' is set
+            if (bucketName == null)
+                throw new ApiException(400, "Missing required parameter 'bucketName' when calling ScanCloudStorageApi->ScanCloudStorageScanGcpStorageFileAdvanced");
+            // verify the required parameter 'objectName' is set
+            if (objectName == null)
+                throw new ApiException(400, "Missing required parameter 'objectName' when calling ScanCloudStorageApi->ScanCloudStorageScanGcpStorageFileAdvanced");
+            // verify the required parameter 'jsonCredentialFile' is set
+            if (jsonCredentialFile == null)
+                throw new ApiException(400, "Missing required parameter 'jsonCredentialFile' when calling ScanCloudStorageApi->ScanCloudStorageScanGcpStorageFileAdvanced");
+
+            var localVarPath = "./virus/scan/cloud-storage/gcp-storage/single/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
+            if (objectName != null) localVarHeaderParams.Add("objectName", this.Configuration.ApiClient.ParameterToString(objectName)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+            if (jsonCredentialFile != null) localVarFileParams.Add("jsonCredentialFile", this.Configuration.ApiClient.ParameterToFile("jsonCredentialFile", jsonCredentialFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanGcpStorageFileAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
+        }
+
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'bucketName' is set
+            if (bucketName == null)
+                throw new ApiException(400, "Missing required parameter 'bucketName' when calling ScanCloudStorageApi->ScanCloudStorageScanGcpStorageFileAdvanced");
+            // verify the required parameter 'objectName' is set
+            if (objectName == null)
+                throw new ApiException(400, "Missing required parameter 'objectName' when calling ScanCloudStorageApi->ScanCloudStorageScanGcpStorageFileAdvanced");
+            // verify the required parameter 'jsonCredentialFile' is set
+            if (jsonCredentialFile == null)
+                throw new ApiException(400, "Missing required parameter 'jsonCredentialFile' when calling ScanCloudStorageApi->ScanCloudStorageScanGcpStorageFileAdvanced");
+
+            var localVarPath = "./virus/scan/cloud-storage/gcp-storage/single/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
+            if (objectName != null) localVarHeaderParams.Add("objectName", this.Configuration.ApiClient.ParameterToString(objectName)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+            if (jsonCredentialFile != null) localVarFileParams.Add("jsonCredentialFile", this.Configuration.ApiClient.ParameterToFile("jsonCredentialFile", jsonCredentialFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanGcpStorageFileAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
         }
 
     }
