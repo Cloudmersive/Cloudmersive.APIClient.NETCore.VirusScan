@@ -38,9 +38,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="containsPasswordProtectedFile">True if the scan contained a password protected or encrypted file, which can be a significant risk factor.</param>
         /// <param name="containsRestrictedFileFormat">True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false.</param>
         /// <param name="containsMacros">True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor.</param>
+        /// <param name="containsXmlExternalEntities">True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor.</param>
         /// <param name="verifiedFileFormat">For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null..</param>
         /// <param name="foundViruses">Array of viruses found, if any.</param>
-        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>))
+        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), bool? containsXmlExternalEntities = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>))
         {
             this.CleanResult = cleanResult;
             this.ContainsExecutable = containsExecutable;
@@ -49,6 +50,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             this.ContainsPasswordProtectedFile = containsPasswordProtectedFile;
             this.ContainsRestrictedFileFormat = containsRestrictedFileFormat;
             this.ContainsMacros = containsMacros;
+            this.ContainsXmlExternalEntities = containsXmlExternalEntities;
             this.VerifiedFileFormat = verifiedFileFormat;
             this.FoundViruses = foundViruses;
         }
@@ -103,6 +105,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public bool? ContainsMacros { get; set; }
 
         /// <summary>
+        /// True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsXmlExternalEntities", EmitDefaultValue=false)]
+        public bool? ContainsXmlExternalEntities { get; set; }
+
+        /// <summary>
         /// For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null.
         /// </summary>
         /// <value>For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null.</value>
@@ -131,6 +140,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  ContainsPasswordProtectedFile: ").Append(ContainsPasswordProtectedFile).Append("\n");
             sb.Append("  ContainsRestrictedFileFormat: ").Append(ContainsRestrictedFileFormat).Append("\n");
             sb.Append("  ContainsMacros: ").Append(ContainsMacros).Append("\n");
+            sb.Append("  ContainsXmlExternalEntities: ").Append(ContainsXmlExternalEntities).Append("\n");
             sb.Append("  VerifiedFileFormat: ").Append(VerifiedFileFormat).Append("\n");
             sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
             sb.Append("}\n");
@@ -203,6 +213,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.ContainsMacros.Equals(input.ContainsMacros))
                 ) && 
                 (
+                    this.ContainsXmlExternalEntities == input.ContainsXmlExternalEntities ||
+                    (this.ContainsXmlExternalEntities != null &&
+                    this.ContainsXmlExternalEntities.Equals(input.ContainsXmlExternalEntities))
+                ) && 
+                (
                     this.VerifiedFileFormat == input.VerifiedFileFormat ||
                     (this.VerifiedFileFormat != null &&
                     this.VerifiedFileFormat.Equals(input.VerifiedFileFormat))
@@ -237,6 +252,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsRestrictedFileFormat.GetHashCode();
                 if (this.ContainsMacros != null)
                     hashCode = hashCode * 59 + this.ContainsMacros.GetHashCode();
+                if (this.ContainsXmlExternalEntities != null)
+                    hashCode = hashCode * 59 + this.ContainsXmlExternalEntities.GetHashCode();
                 if (this.VerifiedFileFormat != null)
                     hashCode = hashCode * 59 + this.VerifiedFileFormat.GetHashCode();
                 if (this.FoundViruses != null)
