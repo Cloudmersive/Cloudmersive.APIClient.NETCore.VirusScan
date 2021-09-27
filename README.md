@@ -5,7 +5,7 @@ The Cloudmersive Virus Scan API lets you scan files and content for viruses and 
 This C# SDK is for the [Cloudmersive Virus Scan API](https://www.cloudmersive.com/virus-api):
 
 - API version: v1
-- SDK version: 2.0.8
+- SDK version: 2.0.9
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -88,6 +88,8 @@ Class | Method | HTTP request | Description
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAzureBlobAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescanazureblobadvanced) | **POST** /virus/scan/cloud-storage/azure-blob/single/advanced | Advanced Scan an Azure Blob for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanGcpStorageFile**](docs/ScanCloudStorageApi.md#scancloudstoragescangcpstoragefile) | **POST** /virus/scan/cloud-storage/gcp-storage/single | Scan an Google Cloud Platform (GCP) Storage file for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanGcpStorageFileAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescangcpstoragefileadvanced) | **POST** /virus/scan/cloud-storage/gcp-storage/single/advanced | Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
+*ScanCloudStorageApi* | [**ScanCloudStorageScanSharePointOnlineFile**](docs/ScanCloudStorageApi.md#scancloudstoragescansharepointonlinefile) | **POST** /virus/scan/cloud-storage/sharepoint-online/site/single | Virus Scan a file in a SharePoint Online Site Drive
+*ScanCloudStorageApi* | [**ScanCloudStorageScanSharePointOnlineFileAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescansharepointonlinefileadvanced) | **POST** /virus/scan/cloud-storage/sharepoint-online/site/advanced | Advanced Virus Scan a file in a SharePoint Online Site Drive
 
 
 <a name="documentation-for-models"></a>
