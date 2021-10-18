@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 <a name="scancloudstoragescansharepointonlinefile"></a>
 # **ScanCloudStorageScanSharePointOnlineFile**
-> CloudStorageVirusScanResult ScanCloudStorageScanSharePointOnlineFile (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null)
+> CloudStorageVirusScanResult ScanCloudStorageScanSharePointOnlineFile (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null)
 
 Virus Scan a file in a SharePoint Online Site Drive
 
@@ -518,11 +518,12 @@ namespace Example
             var siteID = siteID_example;  // string | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
             var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
             var tenantID = tenantID_example;  // string | Optional; Tenant ID of your Azure Active Directory (optional) 
+            var itemID = itemID_example;  // string | SharePoint itemID, such as a DriveItem Id (optional) 
 
             try
             {
                 // Virus Scan a file in a SharePoint Online Site Drive
-                CloudStorageVirusScanResult result = apiInstance.ScanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+                CloudStorageVirusScanResult result = apiInstance.ScanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -544,6 +545,7 @@ Name | Type | Description  | Notes
  **siteID** | **string**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from | 
  **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
  **tenantID** | **string**| Optional; Tenant ID of your Azure Active Directory | [optional] 
+ **itemID** | **string**| SharePoint itemID, such as a DriveItem Id | [optional] 
 
 ### Return type
 
@@ -562,7 +564,7 @@ Name | Type | Description  | Notes
 
 <a name="scancloudstoragescansharepointonlinefileadvanced"></a>
 # **ScanCloudStorageScanSharePointOnlineFileAdvanced**
-> CloudStorageAdvancedVirusScanResult ScanCloudStorageScanSharePointOnlineFileAdvanced (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
+> CloudStorageAdvancedVirusScanResult ScanCloudStorageScanSharePointOnlineFileAdvanced (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
 
 Advanced Virus Scan a file in a SharePoint Online Site Drive
 
@@ -592,8 +594,9 @@ namespace Example
             var clientSecret = clientSecret_example;  // string | Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal
             var sharepointDomainName = sharepointDomainName_example;  // string | SharePoint Online domain name, such as mydomain.sharepoint.com
             var siteID = siteID_example;  // string | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
-            var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
             var tenantID = tenantID_example;  // string | Optional; Tenant ID of your Azure Active Directory (optional) 
+            var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (optional) 
+            var itemID = itemID_example;  // string | SharePoint itemID, such as a DriveItem Id (optional) 
             var allowExecutables = true;  // bool? | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional) 
             var allowInvalidFiles = true;  // bool? | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional) 
             var allowScripts = true;  // bool? | Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional) 
@@ -605,7 +608,7 @@ namespace Example
             try
             {
                 // Advanced Virus Scan a file in a SharePoint Online Site Drive
-                CloudStorageAdvancedVirusScanResult result = apiInstance.ScanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+                CloudStorageAdvancedVirusScanResult result = apiInstance.ScanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -625,8 +628,9 @@ Name | Type | Description  | Notes
  **clientSecret** | **string**| Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal | 
  **sharepointDomainName** | **string**| SharePoint Online domain name, such as mydomain.sharepoint.com | 
  **siteID** | **string**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from | 
- **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
  **tenantID** | **string**| Optional; Tenant ID of your Azure Active Directory | [optional] 
+ **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | [optional] 
+ **itemID** | **string**| SharePoint itemID, such as a DriveItem Id | [optional] 
  **allowExecutables** | **bool?**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allowInvalidFiles** | **bool?**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 
  **allowScripts** | **bool?**| Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). | [optional] 

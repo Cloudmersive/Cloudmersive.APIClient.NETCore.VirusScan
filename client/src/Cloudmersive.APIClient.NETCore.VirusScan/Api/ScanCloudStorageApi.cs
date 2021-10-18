@@ -237,8 +237,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>CloudStorageVirusScanResult</returns>
-        CloudStorageVirusScanResult ScanCloudStorageScanSharePointOnlineFile (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null);
+        CloudStorageVirusScanResult ScanCloudStorageScanSharePointOnlineFile (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null);
 
         /// <summary>
         /// Virus Scan a file in a SharePoint Online Site Drive
@@ -253,8 +254,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
-        ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanSharePointOnlineFileWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null);
+        ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanSharePointOnlineFileWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null);
         /// <summary>
         /// Advanced Virus Scan a file in a SharePoint Online Site Drive
         /// </summary>
@@ -266,8 +268,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -276,7 +279,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanSharePointOnlineFileAdvanced (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanSharePointOnlineFileAdvanced (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Virus Scan a file in a SharePoint Online Site Drive
@@ -289,8 +292,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -299,7 +303,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -515,8 +519,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null);
+        System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null);
 
         /// <summary>
         /// Virus Scan a file in a SharePoint Online Site Drive
@@ -531,8 +536,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null);
         /// <summary>
         /// Advanced Virus Scan a file in a SharePoint Online Site Drive
         /// </summary>
@@ -544,8 +550,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -554,7 +561,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAdvancedAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAdvancedAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Virus Scan a file in a SharePoint Online Site Drive
@@ -567,8 +574,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -577,7 +585,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAdvancedAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAdvancedAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null);
         #endregion Asynchronous Operations
     }
 
@@ -1912,10 +1920,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>CloudStorageVirusScanResult</returns>
-        public CloudStorageVirusScanResult ScanCloudStorageScanSharePointOnlineFile (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null)
+        public CloudStorageVirusScanResult ScanCloudStorageScanSharePointOnlineFile (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null)
         {
-             ApiResponse<CloudStorageVirusScanResult> localVarResponse = ScanCloudStorageScanSharePointOnlineFileWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+             ApiResponse<CloudStorageVirusScanResult> localVarResponse = ScanCloudStorageScanSharePointOnlineFileWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
              return localVarResponse.Data;
         }
 
@@ -1929,8 +1938,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
-        public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanSharePointOnlineFileWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null)
+        public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanSharePointOnlineFileWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null)
         {
             // verify the required parameter 'clientID' is set
             if (clientID == null)
@@ -1979,6 +1989,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (siteID != null) localVarHeaderParams.Add("siteID", this.Configuration.ApiClient.ParameterToString(siteID)); // header parameter
             if (tenantID != null) localVarHeaderParams.Add("tenantID", this.Configuration.ApiClient.ParameterToString(tenantID)); // header parameter
             if (filePath != null) localVarHeaderParams.Add("filePath", this.Configuration.ApiClient.ParameterToString(filePath)); // header parameter
+            if (itemID != null) localVarHeaderParams.Add("itemID", this.Configuration.ApiClient.ParameterToString(itemID)); // header parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -2014,10 +2025,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null)
+        public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null)
         {
-             ApiResponse<CloudStorageVirusScanResult> localVarResponse = await ScanCloudStorageScanSharePointOnlineFileAsyncWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+             ApiResponse<CloudStorageVirusScanResult> localVarResponse = await ScanCloudStorageScanSharePointOnlineFileAsyncWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
              return localVarResponse.Data;
 
         }
@@ -2032,8 +2044,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, string itemID = null)
         {
             // verify the required parameter 'clientID' is set
             if (clientID == null)
@@ -2082,6 +2095,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (siteID != null) localVarHeaderParams.Add("siteID", this.Configuration.ApiClient.ParameterToString(siteID)); // header parameter
             if (tenantID != null) localVarHeaderParams.Add("tenantID", this.Configuration.ApiClient.ParameterToString(tenantID)); // header parameter
             if (filePath != null) localVarHeaderParams.Add("filePath", this.Configuration.ApiClient.ParameterToString(filePath)); // header parameter
+            if (itemID != null) localVarHeaderParams.Add("itemID", this.Configuration.ApiClient.ParameterToString(itemID)); // header parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -2115,8 +2129,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -2125,9 +2140,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanSharePointOnlineFileAdvanced (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanSharePointOnlineFileAdvanced (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
              return localVarResponse.Data;
         }
 
@@ -2139,8 +2154,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -2149,7 +2165,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'clientID' is set
             if (clientID == null)
@@ -2163,9 +2179,6 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             // verify the required parameter 'siteID' is set
             if (siteID == null)
                 throw new ApiException(400, "Missing required parameter 'siteID' when calling ScanCloudStorageApi->ScanCloudStorageScanSharePointOnlineFileAdvanced");
-            // verify the required parameter 'filePath' is set
-            if (filePath == null)
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling ScanCloudStorageApi->ScanCloudStorageScanSharePointOnlineFileAdvanced");
 
             var localVarPath = "./virus/scan/cloud-storage/sharepoint-online/site/advanced";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2198,6 +2211,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (siteID != null) localVarHeaderParams.Add("siteID", this.Configuration.ApiClient.ParameterToString(siteID)); // header parameter
             if (tenantID != null) localVarHeaderParams.Add("tenantID", this.Configuration.ApiClient.ParameterToString(tenantID)); // header parameter
             if (filePath != null) localVarHeaderParams.Add("filePath", this.Configuration.ApiClient.ParameterToString(filePath)); // header parameter
+            if (itemID != null) localVarHeaderParams.Add("itemID", this.Configuration.ApiClient.ParameterToString(itemID)); // header parameter
             if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
             if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
             if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
@@ -2238,8 +2252,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -2248,9 +2263,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAdvancedAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanSharePointOnlineFileAdvancedAsync (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanSharePointOnlineFileAdvancedAsyncWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanSharePointOnlineFileAdvancedAsyncWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
              return localVarResponse.Data;
 
         }
@@ -2263,8 +2278,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -2273,7 +2289,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAdvancedAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string filePath, string tenantID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanSharePointOnlineFileAdvancedAsyncWithHttpInfo (string clientID, string clientSecret, string sharepointDomainName, string siteID, string tenantID = null, string filePath = null, string itemID = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'clientID' is set
             if (clientID == null)
@@ -2287,9 +2303,6 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             // verify the required parameter 'siteID' is set
             if (siteID == null)
                 throw new ApiException(400, "Missing required parameter 'siteID' when calling ScanCloudStorageApi->ScanCloudStorageScanSharePointOnlineFileAdvanced");
-            // verify the required parameter 'filePath' is set
-            if (filePath == null)
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling ScanCloudStorageApi->ScanCloudStorageScanSharePointOnlineFileAdvanced");
 
             var localVarPath = "./virus/scan/cloud-storage/sharepoint-online/site/advanced";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2322,6 +2335,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (siteID != null) localVarHeaderParams.Add("siteID", this.Configuration.ApiClient.ParameterToString(siteID)); // header parameter
             if (tenantID != null) localVarHeaderParams.Add("tenantID", this.Configuration.ApiClient.ParameterToString(tenantID)); // header parameter
             if (filePath != null) localVarHeaderParams.Add("filePath", this.Configuration.ApiClient.ParameterToString(filePath)); // header parameter
+            if (itemID != null) localVarHeaderParams.Add("itemID", this.Configuration.ApiClient.ParameterToString(itemID)); // header parameter
             if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
             if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
             if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
