@@ -5,7 +5,7 @@ The Cloudmersive Virus Scan API lets you scan files and content for viruses and 
 This C# SDK is for the [Cloudmersive Virus Scan API](https://www.cloudmersive.com/virus-api):
 
 - API version: v1
-- SDK version: 2.1.0
+- SDK version: 2.1.1
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.AdditionalAdvancedScanInformation](docs/AdditionalAdvancedScanInformation.md)
  - [Model.CloudStorageAdvancedVirusScanResult](docs/CloudStorageAdvancedVirusScanResult.md)
  - [Model.CloudStorageVirusFound](docs/CloudStorageVirusFound.md)
  - [Model.CloudStorageVirusScanResult](docs/CloudStorageVirusScanResult.md)
