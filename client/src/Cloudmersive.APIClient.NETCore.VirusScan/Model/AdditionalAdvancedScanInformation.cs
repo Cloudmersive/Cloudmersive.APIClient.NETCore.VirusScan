@@ -33,10 +33,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// </summary>
         /// <param name="containsJSON">True if the input file contains JSON data, false otherwise; this is not a threat signal.</param>
         /// <param name="containsXML">True if the input file contains XML data, false otherwise; this is not a threat signal.</param>
-        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?))
+        /// <param name="containsImage">True if the input file contains an image.</param>
+        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?))
         {
             this.ContainsJSON = containsJSON;
             this.ContainsXML = containsXML;
+            this.ContainsImage = containsImage;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public bool? ContainsXML { get; set; }
 
         /// <summary>
+        /// True if the input file contains an image
+        /// </summary>
+        /// <value>True if the input file contains an image</value>
+        [DataMember(Name="ContainsImage", EmitDefaultValue=false)]
+        public bool? ContainsImage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("class AdditionalAdvancedScanInformation {\n");
             sb.Append("  ContainsJSON: ").Append(ContainsJSON).Append("\n");
             sb.Append("  ContainsXML: ").Append(ContainsXML).Append("\n");
+            sb.Append("  ContainsImage: ").Append(ContainsImage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +116,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.ContainsXML == input.ContainsXML ||
                     (this.ContainsXML != null &&
                     this.ContainsXML.Equals(input.ContainsXML))
+                ) && 
+                (
+                    this.ContainsImage == input.ContainsImage ||
+                    (this.ContainsImage != null &&
+                    this.ContainsImage.Equals(input.ContainsImage))
                 );
         }
 
@@ -122,6 +137,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsJSON.GetHashCode();
                 if (this.ContainsXML != null)
                     hashCode = hashCode * 59 + this.ContainsXML.GetHashCode();
+                if (this.ContainsImage != null)
+                    hashCode = hashCode * 59 + this.ContainsImage.GetHashCode();
                 return hashCode;
             }
         }

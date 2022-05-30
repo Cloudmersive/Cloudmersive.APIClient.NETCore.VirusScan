@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FoundViruses** | [**List&lt;CloudStorageVirusFound&gt;**](CloudStorageVirusFound.md) | Array of viruses found, if any | [optional] 
 **ErrorDetailedDescription** | **string** | Detailed error message if the operation was not successful | [optional] 
 **FileSize** | **long?** | Size in bytes of the file that was retrieved and scanned | [optional] 
+**ContainsContentModerationRejection** | **bool?** | Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -46,7 +46,7 @@ namespace Example
             var secretKey = secretKey_example;  // string | AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console
             var bucketRegion = bucketRegion_example;  // string | Name of the region of the S3 bucket, such as 'US-East-1'
             var bucketName = bucketName_example;  // string | Name of the S3 bucket
-            var keyName = keyName_example;  // string | Key name (also called file name) of the file in S3 that you wish to scan for viruses
+            var keyName = keyName_example;  // string | Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
 
             try
             {
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
  **secretKey** | **string**| AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console | 
  **bucketRegion** | **string**| Name of the region of the S3 bucket, such as &#39;US-East-1&#39; | 
  **bucketName** | **string**| Name of the S3 bucket | 
- **keyName** | **string**| Key name (also called file name) of the file in S3 that you wish to scan for viruses | 
+ **keyName** | **string**| Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
 
 ### Return type
 
@@ -120,7 +120,7 @@ namespace Example
             var secretKey = secretKey_example;  // string | AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console
             var bucketRegion = bucketRegion_example;  // string | Name of the region of the S3 bucket, such as 'US-East-1'
             var bucketName = bucketName_example;  // string | Name of the S3 bucket
-            var keyName = keyName_example;  // string | Key name (also called file name) of the file in S3 that you wish to scan for viruses
+            var keyName = keyName_example;  // string | Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
             var allowExecutables = true;  // bool? | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional) 
             var allowInvalidFiles = true;  // bool? | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional) 
             var allowScripts = true;  // bool? | Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional) 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
  **secretKey** | **string**| AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console | 
  **bucketRegion** | **string**| Name of the region of the S3 bucket, such as &#39;US-East-1&#39; | 
  **bucketName** | **string**| Name of the S3 bucket | 
- **keyName** | **string**| Key name (also called file name) of the file in S3 that you wish to scan for viruses | 
+ **keyName** | **string**| Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
  **allowExecutables** | **bool?**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allowInvalidFiles** | **bool?**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 
  **allowScripts** | **bool?**| Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). | [optional] 
@@ -206,7 +206,7 @@ namespace Example
             var apiInstance = new ScanCloudStorageApi();
             var connectionString = connectionString_example;  // string | Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.
             var containerName = containerName_example;  // string | Name of the Blob container within the Azure Blob Storage account
-            var blobPath = blobPath_example;  // string | Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+            var blobPath = blobPath_example;  // string | Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
 
             try
             {
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connectionString** | **string**| Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. | 
  **containerName** | **string**| Name of the Blob container within the Azure Blob Storage account | 
- **blobPath** | **string**| Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
+ **blobPath** | **string**| Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
 
 ### Return type
 
@@ -276,7 +276,7 @@ namespace Example
             var apiInstance = new ScanCloudStorageApi();
             var connectionString = connectionString_example;  // string | Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.
             var containerName = containerName_example;  // string | Name of the Blob container within the Azure Blob Storage account
-            var blobPath = blobPath_example;  // string | Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+            var blobPath = blobPath_example;  // string | Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
             var allowExecutables = true;  // bool? | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional) 
             var allowInvalidFiles = true;  // bool? | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional) 
             var allowScripts = true;  // bool? | Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional) 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connectionString** | **string**| Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. | 
  **containerName** | **string**| Name of the Blob container within the Azure Blob Storage account | 
- **blobPath** | **string**| Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
+ **blobPath** | **string**| Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
  **allowExecutables** | **bool?**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allowInvalidFiles** | **bool?**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 
  **allowScripts** | **bool?**| Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). | [optional] 
@@ -359,7 +359,7 @@ namespace Example
 
             var apiInstance = new ScanCloudStorageApi();
             var bucketName = bucketName_example;  // string | Name of the bucket in Google Cloud Storage
-            var objectName = objectName_example;  // string | Name of the object or file in Google Cloud Storage
+            var objectName = objectName_example;  // string | Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
             var jsonCredentialFile = new System.IO.Stream(); // System.IO.Stream | Service Account credential for Google Cloud stored in a JSON file.
 
             try
@@ -382,7 +382,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucketName** | **string**| Name of the bucket in Google Cloud Storage | 
- **objectName** | **string**| Name of the object or file in Google Cloud Storage | 
+ **objectName** | **string**| Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
  **jsonCredentialFile** | **System.IO.Stream**| Service Account credential for Google Cloud stored in a JSON file. | 
 
 ### Return type
@@ -429,7 +429,7 @@ namespace Example
 
             var apiInstance = new ScanCloudStorageApi();
             var bucketName = bucketName_example;  // string | Name of the bucket in Google Cloud Storage
-            var objectName = objectName_example;  // string | Name of the object or file in Google Cloud Storage
+            var objectName = objectName_example;  // string | Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
             var jsonCredentialFile = new System.IO.Stream(); // System.IO.Stream | Service Account credential for Google Cloud stored in a JSON file.
             var allowExecutables = true;  // bool? | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional) 
             var allowInvalidFiles = true;  // bool? | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional) 
@@ -459,7 +459,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucketName** | **string**| Name of the bucket in Google Cloud Storage | 
- **objectName** | **string**| Name of the object or file in Google Cloud Storage | 
+ **objectName** | **string**| Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
  **jsonCredentialFile** | **System.IO.Stream**| Service Account credential for Google Cloud stored in a JSON file. | 
  **allowExecutables** | **bool?**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allowInvalidFiles** | **bool?**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 
@@ -516,7 +516,7 @@ namespace Example
             var clientSecret = clientSecret_example;  // string | Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal
             var sharepointDomainName = sharepointDomainName_example;  // string | SharePoint Online domain name, such as mydomain.sharepoint.com
             var siteID = siteID_example;  // string | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
-            var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+            var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
             var tenantID = tenantID_example;  // string | Optional; Tenant ID of your Azure Active Directory (optional) 
             var itemID = itemID_example;  // string | SharePoint itemID, such as a DriveItem Id (optional) 
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
  **clientSecret** | **string**| Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal | 
  **sharepointDomainName** | **string**| SharePoint Online domain name, such as mydomain.sharepoint.com | 
  **siteID** | **string**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from | 
- **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
+ **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
  **tenantID** | **string**| Optional; Tenant ID of your Azure Active Directory | [optional] 
  **itemID** | **string**| SharePoint itemID, such as a DriveItem Id | [optional] 
 
@@ -595,7 +595,7 @@ namespace Example
             var sharepointDomainName = sharepointDomainName_example;  // string | SharePoint Online domain name, such as mydomain.sharepoint.com
             var siteID = siteID_example;  // string | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
             var tenantID = tenantID_example;  // string | Optional; Tenant ID of your Azure Active Directory (optional) 
-            var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (optional) 
+            var filePath = filePath_example;  // string | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (optional) 
             var itemID = itemID_example;  // string | SharePoint itemID, such as a DriveItem Id (optional) 
             var allowExecutables = true;  // bool? | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional) 
             var allowInvalidFiles = true;  // bool? | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional) 
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
  **sharepointDomainName** | **string**| SharePoint Online domain name, such as mydomain.sharepoint.com | 
  **siteID** | **string**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from | 
  **tenantID** | **string**| Optional; Tenant ID of your Azure Active Directory | [optional] 
- **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | [optional] 
+ **filePath** | **string**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | [optional] 
  **itemID** | **string**| SharePoint itemID, such as a DriveItem Id | [optional] 
  **allowExecutables** | **bool?**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allowInvalidFiles** | **bool?**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 

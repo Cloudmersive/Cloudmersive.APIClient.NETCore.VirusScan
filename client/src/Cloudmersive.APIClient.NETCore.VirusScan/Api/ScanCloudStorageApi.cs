@@ -35,7 +35,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>CloudStorageVirusScanResult</returns>
         CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
 
@@ -50,7 +50,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
         /// <summary>
@@ -64,7 +64,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -86,7 +86,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -105,7 +105,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>CloudStorageVirusScanResult</returns>
         CloudStorageVirusScanResult ScanCloudStorageScanAzureBlob (string connectionString, string containerName, string blobPath);
 
@@ -118,7 +118,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanAzureBlobWithHttpInfo (string connectionString, string containerName, string blobPath);
         /// <summary>
@@ -130,7 +130,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -150,7 +150,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -168,7 +168,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>CloudStorageVirusScanResult</returns>
         CloudStorageVirusScanResult ScanCloudStorageScanGcpStorageFile (string bucketName, string objectName, System.IO.Stream jsonCredentialFile);
@@ -181,7 +181,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanGcpStorageFileWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile);
@@ -193,7 +193,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -213,7 +213,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -235,7 +235,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>CloudStorageVirusScanResult</returns>
@@ -252,7 +252,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
@@ -269,7 +269,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -293,7 +293,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -317,7 +317,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
         System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
 
@@ -332,7 +332,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
         /// <summary>
@@ -346,7 +346,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -368,7 +368,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -387,7 +387,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
         System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAzureBlobAsync (string connectionString, string containerName, string blobPath);
 
@@ -400,7 +400,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAzureBlobAsyncWithHttpInfo (string connectionString, string containerName, string blobPath);
         /// <summary>
@@ -412,7 +412,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -432,7 +432,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -450,7 +450,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
         System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanGcpStorageFileAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile);
@@ -463,7 +463,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanGcpStorageFileAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile);
@@ -475,7 +475,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -495,7 +495,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -517,7 +517,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
@@ -534,7 +534,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
@@ -551,7 +551,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -575,7 +575,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -694,7 +694,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>CloudStorageVirusScanResult</returns>
         public CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
         {
@@ -710,7 +710,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
         {
@@ -793,7 +793,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
         public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
         {
@@ -810,7 +810,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
         {
@@ -893,7 +893,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -916,7 +916,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1013,7 +1013,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1037,7 +1037,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="secretKey">AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console</param>
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
-        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses</param>
+        /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1132,7 +1132,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>CloudStorageVirusScanResult</returns>
         public CloudStorageVirusScanResult ScanCloudStorageScanAzureBlob (string connectionString, string containerName, string blobPath)
         {
@@ -1146,7 +1146,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanAzureBlobWithHttpInfo (string connectionString, string containerName, string blobPath)
         {
@@ -1219,7 +1219,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
         public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAzureBlobAsync (string connectionString, string containerName, string blobPath)
         {
@@ -1234,7 +1234,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAzureBlobAsyncWithHttpInfo (string connectionString, string containerName, string blobPath)
         {
@@ -1307,7 +1307,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1328,7 +1328,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1415,7 +1415,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1437,7 +1437,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
         /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
-        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1523,7 +1523,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>CloudStorageVirusScanResult</returns>
         public CloudStorageVirusScanResult ScanCloudStorageScanGcpStorageFile (string bucketName, string objectName, System.IO.Stream jsonCredentialFile)
@@ -1537,7 +1537,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
         public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanGcpStorageFileWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile)
@@ -1610,7 +1610,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
         public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanGcpStorageFileAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile)
@@ -1625,7 +1625,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanGcpStorageFileAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile)
@@ -1698,7 +1698,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -1719,7 +1719,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -1806,7 +1806,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -1828,7 +1828,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketName">Name of the bucket in Google Cloud Storage</param>
-        /// <param name="objectName">Name of the object or file in Google Cloud Storage</param>
+        /// <param name="objectName">Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="jsonCredentialFile">Service Account credential for Google Cloud stored in a JSON file.</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -1918,7 +1918,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>CloudStorageVirusScanResult</returns>
@@ -1936,7 +1936,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
@@ -2023,7 +2023,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
@@ -2042,7 +2042,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="clientSecret">Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal</param>
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
@@ -2130,7 +2130,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -2155,7 +2155,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -2253,7 +2253,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
@@ -2279,7 +2279,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="sharepointDomainName">SharePoint Online domain name, such as mydomain.sharepoint.com</param>
         /// <param name="siteID">Site ID (GUID) of the SharePoint site you wish to retrieve the file from</param>
         /// <param name="tenantID">Optional; Tenant ID of your Azure Active Directory (optional)</param>
-        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)</param>
+        /// <param name="filePath">Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="itemID">SharePoint itemID, such as a DriveItem Id (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>

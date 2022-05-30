@@ -43,7 +43,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="foundViruses">Array of viruses found, if any.</param>
         /// <param name="errorDetailedDescription">Detailed error message if the operation was not successful.</param>
         /// <param name="fileSize">Size in bytes of the file that was retrieved and scanned.</param>
-        public CloudStorageAdvancedVirusScanResult(bool? successful = default(bool?), bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), string verifiedFileFormat = default(string), List<CloudStorageVirusFound> foundViruses = default(List<CloudStorageVirusFound>), string errorDetailedDescription = default(string), long? fileSize = default(long?))
+        /// <param name="contentInformation">Contains additional non-threat content verification information.</param>
+        public CloudStorageAdvancedVirusScanResult(bool? successful = default(bool?), bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), string verifiedFileFormat = default(string), List<CloudStorageVirusFound> foundViruses = default(List<CloudStorageVirusFound>), string errorDetailedDescription = default(string), long? fileSize = default(long?), AdditionalAdvancedScanInformation contentInformation = default(AdditionalAdvancedScanInformation))
         {
             this.Successful = successful;
             this.CleanResult = cleanResult;
@@ -57,6 +58,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             this.FoundViruses = foundViruses;
             this.ErrorDetailedDescription = errorDetailedDescription;
             this.FileSize = fileSize;
+            this.ContentInformation = contentInformation;
         }
         
         /// <summary>
@@ -144,6 +146,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public long? FileSize { get; set; }
 
         /// <summary>
+        /// Contains additional non-threat content verification information
+        /// </summary>
+        /// <value>Contains additional non-threat content verification information</value>
+        [DataMember(Name="ContentInformation", EmitDefaultValue=false)]
+        public AdditionalAdvancedScanInformation ContentInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -163,6 +172,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
             sb.Append("  ErrorDetailedDescription: ").Append(ErrorDetailedDescription).Append("\n");
             sb.Append("  FileSize: ").Append(FileSize).Append("\n");
+            sb.Append("  ContentInformation: ").Append(ContentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +266,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.FileSize == input.FileSize ||
                     (this.FileSize != null &&
                     this.FileSize.Equals(input.FileSize))
+                ) && 
+                (
+                    this.ContentInformation == input.ContentInformation ||
+                    (this.ContentInformation != null &&
+                    this.ContentInformation.Equals(input.ContentInformation))
                 );
         }
 
@@ -292,6 +307,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ErrorDetailedDescription.GetHashCode();
                 if (this.FileSize != null)
                     hashCode = hashCode * 59 + this.FileSize.GetHashCode();
+                if (this.ContentInformation != null)
+                    hashCode = hashCode * 59 + this.ContentInformation.GetHashCode();
                 return hashCode;
             }
         }

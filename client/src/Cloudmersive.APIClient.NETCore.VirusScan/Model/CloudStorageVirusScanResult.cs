@@ -36,13 +36,15 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="foundViruses">Array of viruses found, if any.</param>
         /// <param name="errorDetailedDescription">Detailed error message if the operation was not successful.</param>
         /// <param name="fileSize">Size in bytes of the file that was retrieved and scanned.</param>
-        public CloudStorageVirusScanResult(bool? successful = default(bool?), bool? cleanResult = default(bool?), List<CloudStorageVirusFound> foundViruses = default(List<CloudStorageVirusFound>), string errorDetailedDescription = default(string), long? fileSize = default(long?))
+        /// <param name="containsContentModerationRejection">Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default).</param>
+        public CloudStorageVirusScanResult(bool? successful = default(bool?), bool? cleanResult = default(bool?), List<CloudStorageVirusFound> foundViruses = default(List<CloudStorageVirusFound>), string errorDetailedDescription = default(string), long? fileSize = default(long?), bool? containsContentModerationRejection = default(bool?))
         {
             this.Successful = successful;
             this.CleanResult = cleanResult;
             this.FoundViruses = foundViruses;
             this.ErrorDetailedDescription = errorDetailedDescription;
             this.FileSize = fileSize;
+            this.ContainsContentModerationRejection = containsContentModerationRejection;
         }
         
         /// <summary>
@@ -81,6 +83,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public long? FileSize { get; set; }
 
         /// <summary>
+        /// Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default)
+        /// </summary>
+        /// <value>Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default)</value>
+        [DataMember(Name="ContainsContentModerationRejection", EmitDefaultValue=false)]
+        public bool? ContainsContentModerationRejection { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
             sb.Append("  ErrorDetailedDescription: ").Append(ErrorDetailedDescription).Append("\n");
             sb.Append("  FileSize: ").Append(FileSize).Append("\n");
+            sb.Append("  ContainsContentModerationRejection: ").Append(ContainsContentModerationRejection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +161,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.FileSize == input.FileSize ||
                     (this.FileSize != null &&
                     this.FileSize.Equals(input.FileSize))
+                ) && 
+                (
+                    this.ContainsContentModerationRejection == input.ContainsContentModerationRejection ||
+                    (this.ContainsContentModerationRejection != null &&
+                    this.ContainsContentModerationRejection.Equals(input.ContainsContentModerationRejection))
                 );
         }
 
@@ -173,6 +188,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ErrorDetailedDescription.GetHashCode();
                 if (this.FileSize != null)
                     hashCode = hashCode * 59 + this.FileSize.GetHashCode();
+                if (this.ContainsContentModerationRejection != null)
+                    hashCode = hashCode * 59 + this.ContainsContentModerationRejection.GetHashCode();
                 return hashCode;
             }
         }
