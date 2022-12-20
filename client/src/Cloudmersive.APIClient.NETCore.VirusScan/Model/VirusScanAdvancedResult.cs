@@ -41,10 +41,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="containsXmlExternalEntities">True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor.</param>
         /// <param name="containsInsecureDeserialization">True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor.</param>
         /// <param name="containsHtml">True if the uploaded file contains HTML, which can be a significant risk factor.</param>
+        /// <param name="containsUnsafeArchive">True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction.</param>
         /// <param name="verifiedFileFormat">For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null..</param>
         /// <param name="foundViruses">Array of viruses found, if any.</param>
         /// <param name="contentInformation">Contains additional non-threat content verification information.</param>
-        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), bool? containsXmlExternalEntities = default(bool?), bool? containsInsecureDeserialization = default(bool?), bool? containsHtml = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>), AdditionalAdvancedScanInformation contentInformation = default(AdditionalAdvancedScanInformation))
+        public VirusScanAdvancedResult(bool? cleanResult = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), bool? containsXmlExternalEntities = default(bool?), bool? containsInsecureDeserialization = default(bool?), bool? containsHtml = default(bool?), bool? containsUnsafeArchive = default(bool?), string verifiedFileFormat = default(string), List<VirusFound> foundViruses = default(List<VirusFound>), AdditionalAdvancedScanInformation contentInformation = default(AdditionalAdvancedScanInformation))
         {
             this.CleanResult = cleanResult;
             this.ContainsExecutable = containsExecutable;
@@ -56,6 +57,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             this.ContainsXmlExternalEntities = containsXmlExternalEntities;
             this.ContainsInsecureDeserialization = containsInsecureDeserialization;
             this.ContainsHtml = containsHtml;
+            this.ContainsUnsafeArchive = containsUnsafeArchive;
             this.VerifiedFileFormat = verifiedFileFormat;
             this.FoundViruses = foundViruses;
             this.ContentInformation = contentInformation;
@@ -132,6 +134,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public bool? ContainsHtml { get; set; }
 
         /// <summary>
+        /// True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction
+        /// </summary>
+        /// <value>True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction</value>
+        [DataMember(Name="ContainsUnsafeArchive", EmitDefaultValue=false)]
+        public bool? ContainsUnsafeArchive { get; set; }
+
+        /// <summary>
         /// For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null.
         /// </summary>
         /// <value>For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null.</value>
@@ -170,6 +179,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  ContainsXmlExternalEntities: ").Append(ContainsXmlExternalEntities).Append("\n");
             sb.Append("  ContainsInsecureDeserialization: ").Append(ContainsInsecureDeserialization).Append("\n");
             sb.Append("  ContainsHtml: ").Append(ContainsHtml).Append("\n");
+            sb.Append("  ContainsUnsafeArchive: ").Append(ContainsUnsafeArchive).Append("\n");
             sb.Append("  VerifiedFileFormat: ").Append(VerifiedFileFormat).Append("\n");
             sb.Append("  FoundViruses: ").Append(FoundViruses).Append("\n");
             sb.Append("  ContentInformation: ").Append(ContentInformation).Append("\n");
@@ -258,6 +268,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.ContainsHtml.Equals(input.ContainsHtml))
                 ) && 
                 (
+                    this.ContainsUnsafeArchive == input.ContainsUnsafeArchive ||
+                    (this.ContainsUnsafeArchive != null &&
+                    this.ContainsUnsafeArchive.Equals(input.ContainsUnsafeArchive))
+                ) && 
+                (
                     this.VerifiedFileFormat == input.VerifiedFileFormat ||
                     (this.VerifiedFileFormat != null &&
                     this.VerifiedFileFormat.Equals(input.VerifiedFileFormat))
@@ -303,6 +318,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsInsecureDeserialization.GetHashCode();
                 if (this.ContainsHtml != null)
                     hashCode = hashCode * 59 + this.ContainsHtml.GetHashCode();
+                if (this.ContainsUnsafeArchive != null)
+                    hashCode = hashCode * 59 + this.ContainsUnsafeArchive.GetHashCode();
                 if (this.VerifiedFileFormat != null)
                     hashCode = hashCode * 59 + this.VerifiedFileFormat.GetHashCode();
                 if (this.FoundViruses != null)
