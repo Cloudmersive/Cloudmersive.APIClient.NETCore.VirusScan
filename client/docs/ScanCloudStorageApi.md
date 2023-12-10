@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="scancloudstoragescanawss3file"></a>
 # **ScanCloudStorageScanAwsS3File**
-> CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
+> CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null)
 
 Scan an AWS S3 file for viruses
 
@@ -47,11 +47,12 @@ namespace Example
             var bucketRegion = bucketRegion_example;  // string | Name of the region of the S3 bucket, such as 'US-East-1'
             var bucketName = bucketName_example;  // string | Name of the S3 bucket
             var keyName = keyName_example;  // string | Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
+            var roleArn = roleArn_example;  // string | Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (optional) 
 
             try
             {
                 // Scan an AWS S3 file for viruses
-                CloudStorageVirusScanResult result = apiInstance.ScanCloudStorageScanAwsS3File(accessKey, secretKey, bucketRegion, bucketName, keyName);
+                CloudStorageVirusScanResult result = apiInstance.ScanCloudStorageScanAwsS3File(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -72,6 +73,7 @@ Name | Type | Description  | Notes
  **bucketRegion** | **string**| Name of the region of the S3 bucket, such as &#39;US-East-1&#39; | 
  **bucketName** | **string**| Name of the S3 bucket | 
  **keyName** | **string**| Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
+ **roleArn** | **string**| Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | [optional] 
 
 ### Return type
 
@@ -90,7 +92,7 @@ Name | Type | Description  | Notes
 
 <a name="scancloudstoragescanawss3fileadvanced"></a>
 # **ScanCloudStorageScanAwsS3FileAdvanced**
-> CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+> CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
 
 Advanced Scan an AWS S3 file for viruses
 
@@ -121,6 +123,7 @@ namespace Example
             var bucketRegion = bucketRegion_example;  // string | Name of the region of the S3 bucket, such as 'US-East-1'
             var bucketName = bucketName_example;  // string | Name of the S3 bucket
             var keyName = keyName_example;  // string | Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
+            var roleArn = roleArn_example;  // string | Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (optional) 
             var allowExecutables = true;  // bool? | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional) 
             var allowInvalidFiles = true;  // bool? | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional) 
             var allowScripts = true;  // bool? | Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional) 
@@ -134,7 +137,7 @@ namespace Example
             try
             {
                 // Advanced Scan an AWS S3 file for viruses
-                CloudStorageAdvancedVirusScanResult result = apiInstance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+                CloudStorageAdvancedVirusScanResult result = apiInstance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -155,6 +158,7 @@ Name | Type | Description  | Notes
  **bucketRegion** | **string**| Name of the region of the S3 bucket, such as &#39;US-East-1&#39; | 
  **bucketName** | **string**| Name of the S3 bucket | 
  **keyName** | **string**| Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | 
+ **roleArn** | **string**| Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. | [optional] 
  **allowExecutables** | **bool?**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allowInvalidFiles** | **bool?**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 
  **allowScripts** | **bool?**| Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). | [optional] 

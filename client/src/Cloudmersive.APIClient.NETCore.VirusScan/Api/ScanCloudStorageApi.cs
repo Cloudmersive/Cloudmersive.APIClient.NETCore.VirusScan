@@ -36,8 +36,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>CloudStorageVirusScanResult</returns>
-        CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
+        CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null);
 
         /// <summary>
         /// Scan an AWS S3 file for viruses
@@ -51,8 +52,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
-        ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
+        ApiResponse<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null);
         /// <summary>
         /// Advanced Scan an AWS S3 file for viruses
         /// </summary>
@@ -65,6 +67,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -75,7 +78,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an AWS S3 file for viruses
@@ -89,6 +92,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -99,7 +103,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan an Azure Blob for viruses
         /// </summary>
@@ -334,8 +338,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
+        System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null);
 
         /// <summary>
         /// Scan an AWS S3 file for viruses
@@ -349,8 +354,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null);
         /// <summary>
         /// Advanced Scan an AWS S3 file for viruses
         /// </summary>
@@ -363,6 +369,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -373,7 +380,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an AWS S3 file for viruses
@@ -387,6 +394,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -397,7 +405,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan an Azure Blob for viruses
         /// </summary>
@@ -727,10 +735,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>CloudStorageVirusScanResult</returns>
-        public CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
+        public CloudStorageVirusScanResult ScanCloudStorageScanAwsS3File (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null)
         {
-             ApiResponse<CloudStorageVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName);
+             ApiResponse<CloudStorageVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn);
              return localVarResponse.Data;
         }
 
@@ -743,8 +752,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>ApiResponse of CloudStorageVirusScanResult</returns>
-        public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
+        public ApiResponse< CloudStorageVirusScanResult > ScanCloudStorageScanAwsS3FileWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null)
         {
             // verify the required parameter 'accessKey' is set
             if (accessKey == null)
@@ -792,6 +802,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (bucketRegion != null) localVarHeaderParams.Add("bucketRegion", this.Configuration.ApiClient.ParameterToString(bucketRegion)); // header parameter
             if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
             if (keyName != null) localVarHeaderParams.Add("keyName", this.Configuration.ApiClient.ParameterToString(keyName)); // header parameter
+            if (roleArn != null) localVarHeaderParams.Add("roleArn", this.Configuration.ApiClient.ParameterToString(roleArn)); // header parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -826,10 +837,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>Task of CloudStorageVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
+        public async System.Threading.Tasks.Task<CloudStorageVirusScanResult> ScanCloudStorageScanAwsS3FileAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null)
         {
-             ApiResponse<CloudStorageVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName);
+             ApiResponse<CloudStorageVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn);
              return localVarResponse.Data;
 
         }
@@ -843,8 +855,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageVirusScanResult>> ScanCloudStorageScanAwsS3FileAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null)
         {
             // verify the required parameter 'accessKey' is set
             if (accessKey == null)
@@ -892,6 +905,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (bucketRegion != null) localVarHeaderParams.Add("bucketRegion", this.Configuration.ApiClient.ParameterToString(bucketRegion)); // header parameter
             if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
             if (keyName != null) localVarHeaderParams.Add("keyName", this.Configuration.ApiClient.ParameterToString(keyName)); // header parameter
+            if (roleArn != null) localVarHeaderParams.Add("roleArn", this.Configuration.ApiClient.ParameterToString(roleArn)); // header parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -926,6 +940,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -936,9 +951,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
              return localVarResponse.Data;
         }
 
@@ -951,6 +966,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -961,7 +977,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'accessKey' is set
             if (accessKey == null)
@@ -1009,6 +1025,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (bucketRegion != null) localVarHeaderParams.Add("bucketRegion", this.Configuration.ApiClient.ParameterToString(bucketRegion)); // header parameter
             if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
             if (keyName != null) localVarHeaderParams.Add("keyName", this.Configuration.ApiClient.ParameterToString(keyName)); // header parameter
+            if (roleArn != null) localVarHeaderParams.Add("roleArn", this.Configuration.ApiClient.ParameterToString(roleArn)); // header parameter
             if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
             if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
             if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
@@ -1052,6 +1069,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1062,9 +1080,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
              return localVarResponse.Data;
 
         }
@@ -1078,6 +1096,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="bucketRegion">Name of the region of the S3 bucket, such as &#39;US-East-1&#39;</param>
         /// <param name="bucketName">Name of the S3 bucket</param>
         /// <param name="keyName">Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="roleArn">Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (optional)</param>
         /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
         /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
         /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
@@ -1088,7 +1107,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'accessKey' is set
             if (accessKey == null)
@@ -1136,6 +1155,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (bucketRegion != null) localVarHeaderParams.Add("bucketRegion", this.Configuration.ApiClient.ParameterToString(bucketRegion)); // header parameter
             if (bucketName != null) localVarHeaderParams.Add("bucketName", this.Configuration.ApiClient.ParameterToString(bucketName)); // header parameter
             if (keyName != null) localVarHeaderParams.Add("keyName", this.Configuration.ApiClient.ParameterToString(keyName)); // header parameter
+            if (roleArn != null) localVarHeaderParams.Add("roleArn", this.Configuration.ApiClient.ParameterToString(roleArn)); // header parameter
             if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
             if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
             if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
