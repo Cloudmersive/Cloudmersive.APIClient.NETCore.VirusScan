@@ -35,12 +35,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="containsXML">True if the input file contains XML data, false otherwise; this is not a threat signal.</param>
         /// <param name="containsImage">True if the input file contains an image.</param>
         /// <param name="relevantSubfileName">Relevant subfile name in an archive format for identified threats, if any.</param>
-        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?), string relevantSubfileName = default(string))
+        /// <param name="isAuthenticodeSigned">True if there is a valid Authenticode signature, False otherwise.</param>
+        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?), string relevantSubfileName = default(string), bool? isAuthenticodeSigned = default(bool?))
         {
             this.ContainsJSON = containsJSON;
             this.ContainsXML = containsXML;
             this.ContainsImage = containsImage;
             this.RelevantSubfileName = relevantSubfileName;
+            this.IsAuthenticodeSigned = isAuthenticodeSigned;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public string RelevantSubfileName { get; set; }
 
         /// <summary>
+        /// True if there is a valid Authenticode signature, False otherwise
+        /// </summary>
+        /// <value>True if there is a valid Authenticode signature, False otherwise</value>
+        [DataMember(Name="IsAuthenticodeSigned", EmitDefaultValue=false)]
+        public bool? IsAuthenticodeSigned { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +92,7 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  ContainsXML: ").Append(ContainsXML).Append("\n");
             sb.Append("  ContainsImage: ").Append(ContainsImage).Append("\n");
             sb.Append("  RelevantSubfileName: ").Append(RelevantSubfileName).Append("\n");
+            sb.Append("  IsAuthenticodeSigned: ").Append(IsAuthenticodeSigned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +146,11 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.RelevantSubfileName == input.RelevantSubfileName ||
                     (this.RelevantSubfileName != null &&
                     this.RelevantSubfileName.Equals(input.RelevantSubfileName))
+                ) && 
+                (
+                    this.IsAuthenticodeSigned == input.IsAuthenticodeSigned ||
+                    (this.IsAuthenticodeSigned != null &&
+                    this.IsAuthenticodeSigned.Equals(input.IsAuthenticodeSigned))
                 );
         }
 
@@ -156,6 +171,8 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsImage.GetHashCode();
                 if (this.RelevantSubfileName != null)
                     hashCode = hashCode * 59 + this.RelevantSubfileName.GetHashCode();
+                if (this.IsAuthenticodeSigned != null)
+                    hashCode = hashCode * 59 + this.IsAuthenticodeSigned.GetHashCode();
                 return hashCode;
             }
         }

@@ -37,7 +37,19 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="errorDetailedDescription">Detailed error message if the operation was not successful.</param>
         /// <param name="fileSize">Size in bytes of the file that was retrieved and scanned.</param>
         /// <param name="containsContentModerationRejection">Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default).</param>
-        public CloudStorageVirusScanResult(bool? successful = default(bool?), bool? cleanResult = default(bool?), List<CloudStorageVirusFound> foundViruses = default(List<CloudStorageVirusFound>), string errorDetailedDescription = default(string), long? fileSize = default(long?), bool? containsContentModerationRejection = default(bool?))
+        /// <param name="containsExecutable">True if the scan contained an executable (application code), which can be a significant risk factor.</param>
+        /// <param name="containsInvalidFile">True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor.</param>
+        /// <param name="containsScript">True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor.</param>
+        /// <param name="containsPasswordProtectedFile">True if the scan contained a password protected or encrypted file, which can be a significant risk factor.</param>
+        /// <param name="containsRestrictedFileFormat">True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false.</param>
+        /// <param name="containsMacros">True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor.</param>
+        /// <param name="containsXmlExternalEntities">True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor.</param>
+        /// <param name="containsInsecureDeserialization">True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor.</param>
+        /// <param name="containsHtml">True if the uploaded file contains HTML, which can be a significant risk factor.</param>
+        /// <param name="containsUnsafeArchive">True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction.</param>
+        /// <param name="containsOleEmbeddedObject">True if the uploaded file contains an OLE embedded object, which can be a significant risk factor.</param>
+        /// <param name="verifiedFileFormat">For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null..</param>
+        public CloudStorageVirusScanResult(bool? successful = default(bool?), bool? cleanResult = default(bool?), List<CloudStorageVirusFound> foundViruses = default(List<CloudStorageVirusFound>), string errorDetailedDescription = default(string), long? fileSize = default(long?), bool? containsContentModerationRejection = default(bool?), bool? containsExecutable = default(bool?), bool? containsInvalidFile = default(bool?), bool? containsScript = default(bool?), bool? containsPasswordProtectedFile = default(bool?), bool? containsRestrictedFileFormat = default(bool?), bool? containsMacros = default(bool?), bool? containsXmlExternalEntities = default(bool?), bool? containsInsecureDeserialization = default(bool?), bool? containsHtml = default(bool?), bool? containsUnsafeArchive = default(bool?), bool? containsOleEmbeddedObject = default(bool?), string verifiedFileFormat = default(string))
         {
             this.Successful = successful;
             this.CleanResult = cleanResult;
@@ -45,6 +57,18 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             this.ErrorDetailedDescription = errorDetailedDescription;
             this.FileSize = fileSize;
             this.ContainsContentModerationRejection = containsContentModerationRejection;
+            this.ContainsExecutable = containsExecutable;
+            this.ContainsInvalidFile = containsInvalidFile;
+            this.ContainsScript = containsScript;
+            this.ContainsPasswordProtectedFile = containsPasswordProtectedFile;
+            this.ContainsRestrictedFileFormat = containsRestrictedFileFormat;
+            this.ContainsMacros = containsMacros;
+            this.ContainsXmlExternalEntities = containsXmlExternalEntities;
+            this.ContainsInsecureDeserialization = containsInsecureDeserialization;
+            this.ContainsHtml = containsHtml;
+            this.ContainsUnsafeArchive = containsUnsafeArchive;
+            this.ContainsOleEmbeddedObject = containsOleEmbeddedObject;
+            this.VerifiedFileFormat = verifiedFileFormat;
         }
         
         /// <summary>
@@ -90,6 +114,90 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public bool? ContainsContentModerationRejection { get; set; }
 
         /// <summary>
+        /// True if the scan contained an executable (application code), which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the scan contained an executable (application code), which can be a significant risk factor</value>
+        [DataMember(Name="ContainsExecutable", EmitDefaultValue=false)]
+        public bool? ContainsExecutable { get; set; }
+
+        /// <summary>
+        /// True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor</value>
+        [DataMember(Name="ContainsInvalidFile", EmitDefaultValue=false)]
+        public bool? ContainsInvalidFile { get; set; }
+
+        /// <summary>
+        /// True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor</value>
+        [DataMember(Name="ContainsScript", EmitDefaultValue=false)]
+        public bool? ContainsScript { get; set; }
+
+        /// <summary>
+        /// True if the scan contained a password protected or encrypted file, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the scan contained a password protected or encrypted file, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsPasswordProtectedFile", EmitDefaultValue=false)]
+        public bool? ContainsPasswordProtectedFile { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false
+        /// </summary>
+        /// <value>True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false</value>
+        [DataMember(Name="ContainsRestrictedFileFormat", EmitDefaultValue=false)]
+        public bool? ContainsRestrictedFileFormat { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsMacros", EmitDefaultValue=false)]
+        public bool? ContainsMacros { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsXmlExternalEntities", EmitDefaultValue=false)]
+        public bool? ContainsXmlExternalEntities { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsInsecureDeserialization", EmitDefaultValue=false)]
+        public bool? ContainsInsecureDeserialization { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file contains HTML, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the uploaded file contains HTML, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsHtml", EmitDefaultValue=false)]
+        public bool? ContainsHtml { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction
+        /// </summary>
+        /// <value>True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction</value>
+        [DataMember(Name="ContainsUnsafeArchive", EmitDefaultValue=false)]
+        public bool? ContainsUnsafeArchive { get; set; }
+
+        /// <summary>
+        /// True if the uploaded file contains an OLE embedded object, which can be a significant risk factor
+        /// </summary>
+        /// <value>True if the uploaded file contains an OLE embedded object, which can be a significant risk factor</value>
+        [DataMember(Name="ContainsOleEmbeddedObject", EmitDefaultValue=false)]
+        public bool? ContainsOleEmbeddedObject { get; set; }
+
+        /// <summary>
+        /// For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null.
+        /// </summary>
+        /// <value>For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null.</value>
+        [DataMember(Name="VerifiedFileFormat", EmitDefaultValue=false)]
+        public string VerifiedFileFormat { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +211,18 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  ErrorDetailedDescription: ").Append(ErrorDetailedDescription).Append("\n");
             sb.Append("  FileSize: ").Append(FileSize).Append("\n");
             sb.Append("  ContainsContentModerationRejection: ").Append(ContainsContentModerationRejection).Append("\n");
+            sb.Append("  ContainsExecutable: ").Append(ContainsExecutable).Append("\n");
+            sb.Append("  ContainsInvalidFile: ").Append(ContainsInvalidFile).Append("\n");
+            sb.Append("  ContainsScript: ").Append(ContainsScript).Append("\n");
+            sb.Append("  ContainsPasswordProtectedFile: ").Append(ContainsPasswordProtectedFile).Append("\n");
+            sb.Append("  ContainsRestrictedFileFormat: ").Append(ContainsRestrictedFileFormat).Append("\n");
+            sb.Append("  ContainsMacros: ").Append(ContainsMacros).Append("\n");
+            sb.Append("  ContainsXmlExternalEntities: ").Append(ContainsXmlExternalEntities).Append("\n");
+            sb.Append("  ContainsInsecureDeserialization: ").Append(ContainsInsecureDeserialization).Append("\n");
+            sb.Append("  ContainsHtml: ").Append(ContainsHtml).Append("\n");
+            sb.Append("  ContainsUnsafeArchive: ").Append(ContainsUnsafeArchive).Append("\n");
+            sb.Append("  ContainsOleEmbeddedObject: ").Append(ContainsOleEmbeddedObject).Append("\n");
+            sb.Append("  VerifiedFileFormat: ").Append(VerifiedFileFormat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +286,66 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.ContainsContentModerationRejection == input.ContainsContentModerationRejection ||
                     (this.ContainsContentModerationRejection != null &&
                     this.ContainsContentModerationRejection.Equals(input.ContainsContentModerationRejection))
+                ) && 
+                (
+                    this.ContainsExecutable == input.ContainsExecutable ||
+                    (this.ContainsExecutable != null &&
+                    this.ContainsExecutable.Equals(input.ContainsExecutable))
+                ) && 
+                (
+                    this.ContainsInvalidFile == input.ContainsInvalidFile ||
+                    (this.ContainsInvalidFile != null &&
+                    this.ContainsInvalidFile.Equals(input.ContainsInvalidFile))
+                ) && 
+                (
+                    this.ContainsScript == input.ContainsScript ||
+                    (this.ContainsScript != null &&
+                    this.ContainsScript.Equals(input.ContainsScript))
+                ) && 
+                (
+                    this.ContainsPasswordProtectedFile == input.ContainsPasswordProtectedFile ||
+                    (this.ContainsPasswordProtectedFile != null &&
+                    this.ContainsPasswordProtectedFile.Equals(input.ContainsPasswordProtectedFile))
+                ) && 
+                (
+                    this.ContainsRestrictedFileFormat == input.ContainsRestrictedFileFormat ||
+                    (this.ContainsRestrictedFileFormat != null &&
+                    this.ContainsRestrictedFileFormat.Equals(input.ContainsRestrictedFileFormat))
+                ) && 
+                (
+                    this.ContainsMacros == input.ContainsMacros ||
+                    (this.ContainsMacros != null &&
+                    this.ContainsMacros.Equals(input.ContainsMacros))
+                ) && 
+                (
+                    this.ContainsXmlExternalEntities == input.ContainsXmlExternalEntities ||
+                    (this.ContainsXmlExternalEntities != null &&
+                    this.ContainsXmlExternalEntities.Equals(input.ContainsXmlExternalEntities))
+                ) && 
+                (
+                    this.ContainsInsecureDeserialization == input.ContainsInsecureDeserialization ||
+                    (this.ContainsInsecureDeserialization != null &&
+                    this.ContainsInsecureDeserialization.Equals(input.ContainsInsecureDeserialization))
+                ) && 
+                (
+                    this.ContainsHtml == input.ContainsHtml ||
+                    (this.ContainsHtml != null &&
+                    this.ContainsHtml.Equals(input.ContainsHtml))
+                ) && 
+                (
+                    this.ContainsUnsafeArchive == input.ContainsUnsafeArchive ||
+                    (this.ContainsUnsafeArchive != null &&
+                    this.ContainsUnsafeArchive.Equals(input.ContainsUnsafeArchive))
+                ) && 
+                (
+                    this.ContainsOleEmbeddedObject == input.ContainsOleEmbeddedObject ||
+                    (this.ContainsOleEmbeddedObject != null &&
+                    this.ContainsOleEmbeddedObject.Equals(input.ContainsOleEmbeddedObject))
+                ) && 
+                (
+                    this.VerifiedFileFormat == input.VerifiedFileFormat ||
+                    (this.VerifiedFileFormat != null &&
+                    this.VerifiedFileFormat.Equals(input.VerifiedFileFormat))
                 );
         }
 
@@ -190,6 +370,30 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.FileSize.GetHashCode();
                 if (this.ContainsContentModerationRejection != null)
                     hashCode = hashCode * 59 + this.ContainsContentModerationRejection.GetHashCode();
+                if (this.ContainsExecutable != null)
+                    hashCode = hashCode * 59 + this.ContainsExecutable.GetHashCode();
+                if (this.ContainsInvalidFile != null)
+                    hashCode = hashCode * 59 + this.ContainsInvalidFile.GetHashCode();
+                if (this.ContainsScript != null)
+                    hashCode = hashCode * 59 + this.ContainsScript.GetHashCode();
+                if (this.ContainsPasswordProtectedFile != null)
+                    hashCode = hashCode * 59 + this.ContainsPasswordProtectedFile.GetHashCode();
+                if (this.ContainsRestrictedFileFormat != null)
+                    hashCode = hashCode * 59 + this.ContainsRestrictedFileFormat.GetHashCode();
+                if (this.ContainsMacros != null)
+                    hashCode = hashCode * 59 + this.ContainsMacros.GetHashCode();
+                if (this.ContainsXmlExternalEntities != null)
+                    hashCode = hashCode * 59 + this.ContainsXmlExternalEntities.GetHashCode();
+                if (this.ContainsInsecureDeserialization != null)
+                    hashCode = hashCode * 59 + this.ContainsInsecureDeserialization.GetHashCode();
+                if (this.ContainsHtml != null)
+                    hashCode = hashCode * 59 + this.ContainsHtml.GetHashCode();
+                if (this.ContainsUnsafeArchive != null)
+                    hashCode = hashCode * 59 + this.ContainsUnsafeArchive.GetHashCode();
+                if (this.ContainsOleEmbeddedObject != null)
+                    hashCode = hashCode * 59 + this.ContainsOleEmbeddedObject.GetHashCode();
+                if (this.VerifiedFileFormat != null)
+                    hashCode = hashCode * 59 + this.VerifiedFileFormat.GetHashCode();
                 return hashCode;
             }
         }
