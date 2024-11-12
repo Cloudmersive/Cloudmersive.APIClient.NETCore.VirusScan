@@ -25,6 +25,27 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job
+        /// </summary>
+        /// <remarks>
+        /// Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>ScanCloudStorageJobStatusResult</returns>
+        ScanCloudStorageJobStatusResult ScanCloudStorageGetAsyncJobStatus (string asyncJobID);
+
+        /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job
+        /// </summary>
+        /// <remarks>
+        /// Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>ApiResponse of ScanCloudStorageJobStatusResult</returns>
+        ApiResponse<ScanCloudStorageJobStatusResult> ScanCloudStorageGetAsyncJobStatusWithHttpInfo (string asyncJobID);
+        /// <summary>
         /// Scan an AWS S3 file for viruses
         /// </summary>
         /// <remarks>
@@ -76,9 +97,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an AWS S3 file for viruses
@@ -101,9 +125,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan an Azure Blob for viruses
         /// </summary>
@@ -147,9 +174,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAzureBlobAdvanced (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAzureBlobAdvanced (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an Azure Blob for viruses
@@ -169,9 +199,61 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job
+        /// </summary>
+        /// <remarks>
+        /// Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ScanCloudStorageBatchJobCreateResult</returns>
+        ScanCloudStorageBatchJobCreateResult ScanCloudStorageScanAzureBlobAdvancedBatchJob (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job
+        /// </summary>
+        /// <remarks>
+        /// Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of ScanCloudStorageBatchJobCreateResult</returns>
+        ApiResponse<ScanCloudStorageBatchJobCreateResult> ScanCloudStorageScanAzureBlobAdvancedBatchJobWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan an Google Cloud Platform (GCP) Storage file for viruses
         /// </summary>
@@ -215,9 +297,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanGcpStorageFileAdvanced (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        CloudStorageAdvancedVirusScanResult ScanCloudStorageScanGcpStorageFileAdvanced (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
@@ -237,9 +322,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        ApiResponse<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
         /// <summary>
         /// Virus Scan a file in a SharePoint Online Site Drive
         /// </summary>
@@ -327,6 +415,27 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job
+        /// </summary>
+        /// <remarks>
+        /// Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>Task of ScanCloudStorageJobStatusResult</returns>
+        System.Threading.Tasks.Task<ScanCloudStorageJobStatusResult> ScanCloudStorageGetAsyncJobStatusAsync (string asyncJobID);
+
+        /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job
+        /// </summary>
+        /// <remarks>
+        /// Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>Task of ApiResponse (ScanCloudStorageJobStatusResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScanCloudStorageJobStatusResult>> ScanCloudStorageGetAsyncJobStatusAsyncWithHttpInfo (string asyncJobID);
+        /// <summary>
         /// Scan an AWS S3 file for viruses
         /// </summary>
         /// <remarks>
@@ -378,9 +487,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an AWS S3 file for viruses
@@ -403,9 +515,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan an Azure Blob for viruses
         /// </summary>
@@ -449,9 +564,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an Azure Blob for viruses
@@ -471,9 +589,61 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job
+        /// </summary>
+        /// <remarks>
+        /// Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ScanCloudStorageBatchJobCreateResult</returns>
+        System.Threading.Tasks.Task<ScanCloudStorageBatchJobCreateResult> ScanCloudStorageScanAzureBlobAdvancedBatchJobAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job
+        /// </summary>
+        /// <remarks>
+        /// Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (ScanCloudStorageBatchJobCreateResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScanCloudStorageBatchJobCreateResult>> ScanCloudStorageScanAzureBlobAdvancedBatchJobAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
         /// <summary>
         /// Scan an Google Cloud Platform (GCP) Storage file for viruses
         /// </summary>
@@ -517,9 +687,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
 
         /// <summary>
         /// Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
@@ -539,9 +712,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null);
+        System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null);
         /// <summary>
         /// Virus Scan a file in a SharePoint Online Site Drive
         /// </summary>
@@ -724,6 +900,155 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>ScanCloudStorageJobStatusResult</returns>
+        public ScanCloudStorageJobStatusResult ScanCloudStorageGetAsyncJobStatus (string asyncJobID)
+        {
+             ApiResponse<ScanCloudStorageJobStatusResult> localVarResponse = ScanCloudStorageGetAsyncJobStatusWithHttpInfo(asyncJobID);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>ApiResponse of ScanCloudStorageJobStatusResult</returns>
+        public ApiResponse< ScanCloudStorageJobStatusResult > ScanCloudStorageGetAsyncJobStatusWithHttpInfo (string asyncJobID)
+        {
+            // verify the required parameter 'asyncJobID' is set
+            if (asyncJobID == null)
+                throw new ApiException(400, "Missing required parameter 'asyncJobID' when calling ScanCloudStorageApi->ScanCloudStorageGetAsyncJobStatus");
+
+            var localVarPath = "./virus/scan/cloud-storage/batch-job/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (asyncJobID != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "AsyncJobID", asyncJobID)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageGetAsyncJobStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScanCloudStorageJobStatusResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ScanCloudStorageJobStatusResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScanCloudStorageJobStatusResult)));
+        }
+
+        /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>Task of ScanCloudStorageJobStatusResult</returns>
+        public async System.Threading.Tasks.Task<ScanCloudStorageJobStatusResult> ScanCloudStorageGetAsyncJobStatusAsync (string asyncJobID)
+        {
+             ApiResponse<ScanCloudStorageJobStatusResult> localVarResponse = await ScanCloudStorageGetAsyncJobStatusAsyncWithHttpInfo(asyncJobID);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the status and result of a Scan Cloud Storage Batch Job Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asyncJobID"></param>
+        /// <returns>Task of ApiResponse (ScanCloudStorageJobStatusResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScanCloudStorageJobStatusResult>> ScanCloudStorageGetAsyncJobStatusAsyncWithHttpInfo (string asyncJobID)
+        {
+            // verify the required parameter 'asyncJobID' is set
+            if (asyncJobID == null)
+                throw new ApiException(400, "Missing required parameter 'asyncJobID' when calling ScanCloudStorageApi->ScanCloudStorageGetAsyncJobStatus");
+
+            var localVarPath = "./virus/scan/cloud-storage/batch-job/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (asyncJobID != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "AsyncJobID", asyncJobID)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageGetAsyncJobStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScanCloudStorageJobStatusResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ScanCloudStorageJobStatusResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScanCloudStorageJobStatusResult)));
         }
 
         /// <summary>
@@ -949,11 +1274,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAwsS3FileAdvanced (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
              return localVarResponse.Data;
         }
 
@@ -975,9 +1303,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAwsS3FileAdvancedWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'accessKey' is set
             if (accessKey == null)
@@ -1034,6 +1365,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
             if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
             if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
 
             // authentication (Apikey) required
@@ -1078,11 +1412,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAwsS3FileAdvancedAsync (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
              return localVarResponse.Data;
 
         }
@@ -1105,9 +1442,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAwsS3FileAdvancedAsyncWithHttpInfo (string accessKey, string secretKey, string bucketRegion, string bucketName, string keyName, string roleArn = null, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'accessKey' is set
             if (accessKey == null)
@@ -1164,6 +1504,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
             if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
             if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
 
             // authentication (Apikey) required
@@ -1380,11 +1723,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAzureBlobAdvanced (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanAzureBlobAdvanced (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
              return localVarResponse.Data;
         }
 
@@ -1403,9 +1749,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanAzureBlobAdvancedWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'connectionString' is set
             if (connectionString == null)
@@ -1453,6 +1802,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
             if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
             if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
 
             // authentication (Apikey) required
@@ -1494,11 +1846,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanAzureBlobAdvancedAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
              return localVarResponse.Data;
 
         }
@@ -1518,9 +1873,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanAzureBlobAdvancedAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'connectionString' is set
             if (connectionString == null)
@@ -1568,6 +1926,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
             if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
             if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
 
             // authentication (Apikey) required
@@ -1592,6 +1953,253 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             return new ApiResponse<CloudStorageAdvancedVirusScanResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CloudStorageAdvancedVirusScanResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CloudStorageAdvancedVirusScanResult)));
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ScanCloudStorageBatchJobCreateResult</returns>
+        public ScanCloudStorageBatchJobCreateResult ScanCloudStorageScanAzureBlobAdvancedBatchJob (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
+        {
+             ApiResponse<ScanCloudStorageBatchJobCreateResult> localVarResponse = ScanCloudStorageScanAzureBlobAdvancedBatchJobWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>ApiResponse of ScanCloudStorageBatchJobCreateResult</returns>
+        public ApiResponse< ScanCloudStorageBatchJobCreateResult > ScanCloudStorageScanAzureBlobAdvancedBatchJobWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'connectionString' is set
+            if (connectionString == null)
+                throw new ApiException(400, "Missing required parameter 'connectionString' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvancedBatchJob");
+            // verify the required parameter 'containerName' is set
+            if (containerName == null)
+                throw new ApiException(400, "Missing required parameter 'containerName' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvancedBatchJob");
+            // verify the required parameter 'blobPath' is set
+            if (blobPath == null)
+                throw new ApiException(400, "Missing required parameter 'blobPath' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvancedBatchJob");
+
+            var localVarPath = "./virus/scan/cloud-storage/azure-blob/single/advanced/batch-job";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (connectionString != null) localVarHeaderParams.Add("connectionString", this.Configuration.ApiClient.ParameterToString(connectionString)); // header parameter
+            if (containerName != null) localVarHeaderParams.Add("containerName", this.Configuration.ApiClient.ParameterToString(containerName)); // header parameter
+            if (blobPath != null) localVarHeaderParams.Add("blobPath", this.Configuration.ApiClient.ParameterToString(blobPath)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
+            if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
+            if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanAzureBlobAdvancedBatchJob", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScanCloudStorageBatchJobCreateResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ScanCloudStorageBatchJobCreateResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScanCloudStorageBatchJobCreateResult)));
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ScanCloudStorageBatchJobCreateResult</returns>
+        public async System.Threading.Tasks.Task<ScanCloudStorageBatchJobCreateResult> ScanCloudStorageScanAzureBlobAdvancedBatchJobAsync (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
+        {
+             ApiResponse<ScanCloudStorageBatchJobCreateResult> localVarResponse = await ScanCloudStorageScanAzureBlobAdvancedBatchJobAsyncWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Advanced Scan an Azure Blob for viruses via a batch job Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="connectionString">Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal.</param>
+        /// <param name="containerName">Name of the Blob container within the Azure Blob Storage account</param>
+        /// <param name="blobPath">Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;.</param>
+        /// <param name="allowExecutables">Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)</param>
+        /// <param name="allowInvalidFiles">Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)</param>
+        /// <param name="allowScripts">Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowPasswordProtectedFiles">Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowMacros">Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
+        /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
+        /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
+        /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
+        /// <returns>Task of ApiResponse (ScanCloudStorageBatchJobCreateResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScanCloudStorageBatchJobCreateResult>> ScanCloudStorageScanAzureBlobAdvancedBatchJobAsyncWithHttpInfo (string connectionString, string containerName, string blobPath, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
+        {
+            // verify the required parameter 'connectionString' is set
+            if (connectionString == null)
+                throw new ApiException(400, "Missing required parameter 'connectionString' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvancedBatchJob");
+            // verify the required parameter 'containerName' is set
+            if (containerName == null)
+                throw new ApiException(400, "Missing required parameter 'containerName' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvancedBatchJob");
+            // verify the required parameter 'blobPath' is set
+            if (blobPath == null)
+                throw new ApiException(400, "Missing required parameter 'blobPath' when calling ScanCloudStorageApi->ScanCloudStorageScanAzureBlobAdvancedBatchJob");
+
+            var localVarPath = "./virus/scan/cloud-storage/azure-blob/single/advanced/batch-job";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (connectionString != null) localVarHeaderParams.Add("connectionString", this.Configuration.ApiClient.ParameterToString(connectionString)); // header parameter
+            if (containerName != null) localVarHeaderParams.Add("containerName", this.Configuration.ApiClient.ParameterToString(containerName)); // header parameter
+            if (blobPath != null) localVarHeaderParams.Add("blobPath", this.Configuration.ApiClient.ParameterToString(blobPath)); // header parameter
+            if (allowExecutables != null) localVarHeaderParams.Add("allowExecutables", this.Configuration.ApiClient.ParameterToString(allowExecutables)); // header parameter
+            if (allowInvalidFiles != null) localVarHeaderParams.Add("allowInvalidFiles", this.Configuration.ApiClient.ParameterToString(allowInvalidFiles)); // header parameter
+            if (allowScripts != null) localVarHeaderParams.Add("allowScripts", this.Configuration.ApiClient.ParameterToString(allowScripts)); // header parameter
+            if (allowPasswordProtectedFiles != null) localVarHeaderParams.Add("allowPasswordProtectedFiles", this.Configuration.ApiClient.ParameterToString(allowPasswordProtectedFiles)); // header parameter
+            if (allowMacros != null) localVarHeaderParams.Add("allowMacros", this.Configuration.ApiClient.ParameterToString(allowMacros)); // header parameter
+            if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
+            if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
+            if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
+            if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ScanCloudStorageScanAzureBlobAdvancedBatchJob", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScanCloudStorageBatchJobCreateResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ScanCloudStorageBatchJobCreateResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScanCloudStorageBatchJobCreateResult)));
         }
 
         /// <summary>
@@ -1784,11 +2392,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>CloudStorageAdvancedVirusScanResult</returns>
-        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanGcpStorageFileAdvanced (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public CloudStorageAdvancedVirusScanResult ScanCloudStorageScanGcpStorageFileAdvanced (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
              return localVarResponse.Data;
         }
 
@@ -1807,9 +2418,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>ApiResponse of CloudStorageAdvancedVirusScanResult</returns>
-        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public ApiResponse< CloudStorageAdvancedVirusScanResult > ScanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'bucketName' is set
             if (bucketName == null)
@@ -1856,6 +2470,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
             if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
             if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
             if (jsonCredentialFile != null) localVarFileParams.Add("jsonCredentialFile", this.Configuration.ApiClient.ParameterToFile("jsonCredentialFile", jsonCredentialFile));
 
@@ -1898,11 +2515,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of CloudStorageAdvancedVirusScanResult</returns>
-        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<CloudStorageAdvancedVirusScanResult> ScanCloudStorageScanGcpStorageFileAdvancedAsync (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
-             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+             ApiResponse<CloudStorageAdvancedVirusScanResult> localVarResponse = await ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
              return localVarResponse.Data;
 
         }
@@ -1922,9 +2542,12 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
         /// <param name="allowXmlExternalEntities">Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)</param>
         /// <param name="allowInsecureDeserialization">Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)</param>
         /// <param name="allowHtml">Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)</param>
+        /// <param name="allowUnsafeArchives">Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)</param>
+        /// <param name="allowOleEmbeddedObject">Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)</param>
+        /// <param name="options">Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)</param>
         /// <param name="restrictFileTypes">Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)</param>
         /// <returns>Task of ApiResponse (CloudStorageAdvancedVirusScanResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, string restrictFileTypes = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CloudStorageAdvancedVirusScanResult>> ScanCloudStorageScanGcpStorageFileAdvancedAsyncWithHttpInfo (string bucketName, string objectName, System.IO.Stream jsonCredentialFile, bool? allowExecutables = null, bool? allowInvalidFiles = null, bool? allowScripts = null, bool? allowPasswordProtectedFiles = null, bool? allowMacros = null, bool? allowXmlExternalEntities = null, bool? allowInsecureDeserialization = null, bool? allowHtml = null, bool? allowUnsafeArchives = null, bool? allowOleEmbeddedObject = null, string options = null, string restrictFileTypes = null)
         {
             // verify the required parameter 'bucketName' is set
             if (bucketName == null)
@@ -1971,6 +2594,9 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Api
             if (allowXmlExternalEntities != null) localVarHeaderParams.Add("allowXmlExternalEntities", this.Configuration.ApiClient.ParameterToString(allowXmlExternalEntities)); // header parameter
             if (allowInsecureDeserialization != null) localVarHeaderParams.Add("allowInsecureDeserialization", this.Configuration.ApiClient.ParameterToString(allowInsecureDeserialization)); // header parameter
             if (allowHtml != null) localVarHeaderParams.Add("allowHtml", this.Configuration.ApiClient.ParameterToString(allowHtml)); // header parameter
+            if (allowUnsafeArchives != null) localVarHeaderParams.Add("allowUnsafeArchives", this.Configuration.ApiClient.ParameterToString(allowUnsafeArchives)); // header parameter
+            if (allowOleEmbeddedObject != null) localVarHeaderParams.Add("allowOleEmbeddedObject", this.Configuration.ApiClient.ParameterToString(allowOleEmbeddedObject)); // header parameter
+            if (options != null) localVarHeaderParams.Add("options", this.Configuration.ApiClient.ParameterToString(options)); // header parameter
             if (restrictFileTypes != null) localVarHeaderParams.Add("restrictFileTypes", this.Configuration.ApiClient.ParameterToString(restrictFileTypes)); // header parameter
             if (jsonCredentialFile != null) localVarFileParams.Add("jsonCredentialFile", this.Configuration.ApiClient.ParameterToFile("jsonCredentialFile", jsonCredentialFile));
 

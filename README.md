@@ -82,10 +82,12 @@ Class | Method | HTTP request | Description
 *ScanApi* | [**ScanFile**](docs/ScanApi.md#scanfile) | **POST** /virus/scan/file | Scan a file for viruses
 *ScanApi* | [**ScanFileAdvanced**](docs/ScanApi.md#scanfileadvanced) | **POST** /virus/scan/file/advanced | Advanced Scan a file for viruses
 *ScanApi* | [**ScanWebsite**](docs/ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content and threats
+*ScanCloudStorageApi* | [**ScanCloudStorageGetAsyncJobStatus**](docs/ScanCloudStorageApi.md#scancloudstoragegetasyncjobstatus) | **GET** /virus/scan/cloud-storage/batch-job/status | Get the status and result of a Scan Cloud Storage Batch Job
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAwsS3File**](docs/ScanCloudStorageApi.md#scancloudstoragescanawss3file) | **POST** /virus/scan/cloud-storage/aws-s3/single | Scan an AWS S3 file for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAwsS3FileAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescanawss3fileadvanced) | **POST** /virus/scan/cloud-storage/aws-s3/single/advanced | Advanced Scan an AWS S3 file for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAzureBlob**](docs/ScanCloudStorageApi.md#scancloudstoragescanazureblob) | **POST** /virus/scan/cloud-storage/azure-blob/single | Scan an Azure Blob for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanAzureBlobAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescanazureblobadvanced) | **POST** /virus/scan/cloud-storage/azure-blob/single/advanced | Advanced Scan an Azure Blob for viruses
+*ScanCloudStorageApi* | [**ScanCloudStorageScanAzureBlobAdvancedBatchJob**](docs/ScanCloudStorageApi.md#scancloudstoragescanazureblobadvancedbatchjob) | **POST** /virus/scan/cloud-storage/azure-blob/single/advanced/batch-job | Advanced Scan an Azure Blob for viruses via a batch job
 *ScanCloudStorageApi* | [**ScanCloudStorageScanGcpStorageFile**](docs/ScanCloudStorageApi.md#scancloudstoragescangcpstoragefile) | **POST** /virus/scan/cloud-storage/gcp-storage/single | Scan an Google Cloud Platform (GCP) Storage file for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanGcpStorageFileAdvanced**](docs/ScanCloudStorageApi.md#scancloudstoragescangcpstoragefileadvanced) | **POST** /virus/scan/cloud-storage/gcp-storage/single/advanced | Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
 *ScanCloudStorageApi* | [**ScanCloudStorageScanSharePointOnlineFile**](docs/ScanCloudStorageApi.md#scancloudstoragescansharepointonlinefile) | **POST** /virus/scan/cloud-storage/sharepoint-online/site/single | Virus Scan a file in a SharePoint Online Site Drive
@@ -99,6 +101,8 @@ Class | Method | HTTP request | Description
  - [Model.CloudStorageAdvancedVirusScanResult](docs/CloudStorageAdvancedVirusScanResult.md)
  - [Model.CloudStorageVirusFound](docs/CloudStorageVirusFound.md)
  - [Model.CloudStorageVirusScanResult](docs/CloudStorageVirusScanResult.md)
+ - [Model.ScanCloudStorageBatchJobCreateResult](docs/ScanCloudStorageBatchJobCreateResult.md)
+ - [Model.ScanCloudStorageJobStatusResult](docs/ScanCloudStorageJobStatusResult.md)
  - [Model.VirusFound](docs/VirusFound.md)
  - [Model.VirusScanAdvancedResult](docs/VirusScanAdvancedResult.md)
  - [Model.VirusScanResult](docs/VirusScanResult.md)

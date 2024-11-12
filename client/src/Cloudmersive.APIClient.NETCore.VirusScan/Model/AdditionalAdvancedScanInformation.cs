@@ -34,13 +34,19 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         /// <param name="containsJSON">True if the input file contains JSON data, false otherwise; this is not a threat signal.</param>
         /// <param name="containsXML">True if the input file contains XML data, false otherwise; this is not a threat signal.</param>
         /// <param name="containsImage">True if the input file contains an image.</param>
+        /// <param name="hashSHA1">SHA1 hash of input file.</param>
         /// <param name="relevantSubfileName">Relevant subfile name in an archive format for identified threats, if any.</param>
-        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?), string relevantSubfileName = default(string))
+        /// <param name="relevantSubfileHashSHA1">SHA1 hash of relevant subfile name in an archive format for identified threats, if any.</param>
+        /// <param name="isAuthenticodeSigned">True if there is a valid Authenticode signature, False otherwise.</param>
+        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?), string hashSHA1 = default(string), string relevantSubfileName = default(string), string relevantSubfileHashSHA1 = default(string), bool? isAuthenticodeSigned = default(bool?))
         {
             this.ContainsJSON = containsJSON;
             this.ContainsXML = containsXML;
             this.ContainsImage = containsImage;
+            this.HashSHA1 = hashSHA1;
             this.RelevantSubfileName = relevantSubfileName;
+            this.RelevantSubfileHashSHA1 = relevantSubfileHashSHA1;
+            this.IsAuthenticodeSigned = isAuthenticodeSigned;
         }
         
         /// <summary>
@@ -65,11 +71,32 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
         public bool? ContainsImage { get; set; }
 
         /// <summary>
+        /// SHA1 hash of input file
+        /// </summary>
+        /// <value>SHA1 hash of input file</value>
+        [DataMember(Name="Hash_SHA1", EmitDefaultValue=false)]
+        public string HashSHA1 { get; set; }
+
+        /// <summary>
         /// Relevant subfile name in an archive format for identified threats, if any
         /// </summary>
         /// <value>Relevant subfile name in an archive format for identified threats, if any</value>
         [DataMember(Name="RelevantSubfileName", EmitDefaultValue=false)]
         public string RelevantSubfileName { get; set; }
+
+        /// <summary>
+        /// SHA1 hash of relevant subfile name in an archive format for identified threats, if any
+        /// </summary>
+        /// <value>SHA1 hash of relevant subfile name in an archive format for identified threats, if any</value>
+        [DataMember(Name="RelevantSubfileHash_SHA1", EmitDefaultValue=false)]
+        public string RelevantSubfileHashSHA1 { get; set; }
+
+        /// <summary>
+        /// True if there is a valid Authenticode signature, False otherwise
+        /// </summary>
+        /// <value>True if there is a valid Authenticode signature, False otherwise</value>
+        [DataMember(Name="IsAuthenticodeSigned", EmitDefaultValue=false)]
+        public bool? IsAuthenticodeSigned { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,7 +109,10 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
             sb.Append("  ContainsJSON: ").Append(ContainsJSON).Append("\n");
             sb.Append("  ContainsXML: ").Append(ContainsXML).Append("\n");
             sb.Append("  ContainsImage: ").Append(ContainsImage).Append("\n");
+            sb.Append("  HashSHA1: ").Append(HashSHA1).Append("\n");
             sb.Append("  RelevantSubfileName: ").Append(RelevantSubfileName).Append("\n");
+            sb.Append("  RelevantSubfileHashSHA1: ").Append(RelevantSubfileHashSHA1).Append("\n");
+            sb.Append("  IsAuthenticodeSigned: ").Append(IsAuthenticodeSigned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -133,9 +163,24 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     this.ContainsImage.Equals(input.ContainsImage))
                 ) && 
                 (
+                    this.HashSHA1 == input.HashSHA1 ||
+                    (this.HashSHA1 != null &&
+                    this.HashSHA1.Equals(input.HashSHA1))
+                ) && 
+                (
                     this.RelevantSubfileName == input.RelevantSubfileName ||
                     (this.RelevantSubfileName != null &&
                     this.RelevantSubfileName.Equals(input.RelevantSubfileName))
+                ) && 
+                (
+                    this.RelevantSubfileHashSHA1 == input.RelevantSubfileHashSHA1 ||
+                    (this.RelevantSubfileHashSHA1 != null &&
+                    this.RelevantSubfileHashSHA1.Equals(input.RelevantSubfileHashSHA1))
+                ) && 
+                (
+                    this.IsAuthenticodeSigned == input.IsAuthenticodeSigned ||
+                    (this.IsAuthenticodeSigned != null &&
+                    this.IsAuthenticodeSigned.Equals(input.IsAuthenticodeSigned))
                 );
         }
 
@@ -154,8 +199,14 @@ namespace Cloudmersive.APIClient.NETCore.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsXML.GetHashCode();
                 if (this.ContainsImage != null)
                     hashCode = hashCode * 59 + this.ContainsImage.GetHashCode();
+                if (this.HashSHA1 != null)
+                    hashCode = hashCode * 59 + this.HashSHA1.GetHashCode();
                 if (this.RelevantSubfileName != null)
                     hashCode = hashCode * 59 + this.RelevantSubfileName.GetHashCode();
+                if (this.RelevantSubfileHashSHA1 != null)
+                    hashCode = hashCode * 59 + this.RelevantSubfileHashSHA1.GetHashCode();
+                if (this.IsAuthenticodeSigned != null)
+                    hashCode = hashCode * 59 + this.IsAuthenticodeSigned.GetHashCode();
                 return hashCode;
             }
         }
