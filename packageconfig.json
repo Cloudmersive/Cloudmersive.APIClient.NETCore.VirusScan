@@ -1,6 +1,6 @@
 ﻿{
     "packageName": "Cloudmersive.APIClient.NETCore.VirusScan",
-    "packageVersion": "2.3.1",
+    "packageVersion": "2.4.0",
     "netCoreProjectFile": "true",
     "packageGuid": "d6bea351-f1c3-4718-9384-3673c83d6996",
     "targetFramework": "v5.0"
