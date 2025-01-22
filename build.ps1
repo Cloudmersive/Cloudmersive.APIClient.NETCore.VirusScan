@@ -6,7 +6,8 @@
 
 
 
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Api/ScanApi.cs).replace('private Cloudmersive.APIClient.NETCore.VirusScan.Client.ExceptionFactory _exceptionFactory = (name, response) => null;', (Get-Content ./chunked-upload.inc.cs)) | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Api/ScanApi.cs
+(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Api/ScanApi.cs).replace('private Cloudmersive.APIClient.NETCore.VirusScan.Client.ExceptionFactory _exceptionFactory = (name, response) => null;', (Get-Content ./chunked-upload.inc.cs -Raw)) | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Api/ScanApi.cs
+(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Api/ScanApi.cs).replace('using System.Linq;', 'using System.Linq;using System.IO;using System.Threading.Tasks;using System.Net.Http;using System.Net;using Newtonsoft.Json;') | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Api/ScanApi.cs
 
 (Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />', '<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />') | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
 (Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<Authors>Swagger</Authors>', "<Authors>Cloudmersive</Authors>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
