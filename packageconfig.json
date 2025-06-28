@@ -1,7 +1,31 @@
 ﻿{
     "packageName": "Cloudmersive.APIClient.NETCore.VirusScan",
-    "packageVersion": "2.4.1",
+    "packageVersion": "4.0.0",
     "netCoreProjectFile": "true",
     "packageGuid": "d6bea351-f1c3-4718-9384-3673c83d6996",
-    "targetFramework": "v5.0"
+    "targetFramework": "netstandard2.0",
+
+
+    "packageTitle":       "Cloudmersive Virus Scan API .NET Core Client",
+    "packageDescription": "Cloudmersive Virus Scan allows you to scan files, URLs, and webistes for viruses, malware, trojans, ransomware, spyware, and many other types of threats.  Multi-factor scanning across many delivery methods including polymorphic and multipartite.  Scanning supports files, archives, and recursive file formats.",
+
+    "packageAuthors":     "Cloudmersive LLC",
+    "packageCompany":     "Cloudmersive LLC",
+    "packageProjectUrl":  "https://cloudmersive.com/virus-api",
+    "packageUrl":  "https://cloudmersive.com/virus-api",
+    "packageIconUrl":     "https://cloudmersive.com/images/cmsdk.png",
+    "packageTags":        "virus scan security malware cloudmersive",
+    "releaseNote":        "Change to HttpClient core",
+
+    "gitHost":   "github.com",
+    "gitUserId": "Cloudmersive",
+    "gitRepoId": "Cloudmersive.APIClient.NETCore.VirusScan",
+
+    "licenseId": "Apache-2.0",
+
+    "packageCopyright":          "Copyright © 2025 Cloudmersive, LLC.",
+    "supportsFileParameters": true,
+    "library": "restsharp"
 }
+
+

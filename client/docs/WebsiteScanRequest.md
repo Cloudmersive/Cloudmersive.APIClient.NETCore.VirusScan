@@ -1,4 +1,6 @@
 # Cloudmersive.APIClient.NETCore.VirusScan.Model.WebsiteScanRequest
+Request to scan a website for malicious content
+
 ## Properties
 
 Name | Type | Description | Notes
